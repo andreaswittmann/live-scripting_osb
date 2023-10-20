@@ -994,16 +994,13 @@ GitHub offers a command line interface which can be used to upload and commit th
 #+begin_src bash
 # Listing: Initializing git project and uploading it to GitHub
 
-# installing github cli
+## installing github cli
 brew install gh
 gh --help
 
-
-# initilize git project
+## initilize git project
 cd ~/LocalProjects/live-scripting_osb
-find .
 
-git status
 git init
 
 ## create .gitignore file
@@ -1014,7 +1011,7 @@ EOF
 cat .gitignore
 
 
-## Add file to git 
+## adding file to git 
 ls -la
 git add live-scripting_osb.org
 git add live-scripting_osb.pdf
@@ -1022,9 +1019,10 @@ git add live-scripting_osb.html
 git add data
 git add docs
 git add live-scripting_fmw
+git add -n aw-org-html-themes
 
 git status
-
+git commit -m "initial project commit"
 
 
 #+end_src
