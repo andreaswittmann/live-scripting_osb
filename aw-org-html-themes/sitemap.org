@@ -1,0 +1,5 @@
+#+TITLE: Sitemap for project org-themes-notes
+
+- [[file:README.org][How to export Org mode files into awesome HTML in 2 minutes]]
+- demo
+  - [[file:demo/example.org][Example of Tasks]]
