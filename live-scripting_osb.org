@@ -1019,12 +1019,12 @@ git add live-scripting_osb.html
 git add data
 git add docs
 git add live-scripting_fmw
-git add -n aw-org-html-themes
+git add aw-org-html-themes
 
 git status
 git commit -m "initial project commit"
 
-
+## Uploading to GitHub
 #+end_src
 
 * Appendix
