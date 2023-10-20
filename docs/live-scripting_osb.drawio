@@ -1,0 +1,439 @@
+<mxfile host="Electron" modified="2023-10-18T09:59:06.077Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.2 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="BgUNxVibKBad2Sdzhry-" version="22.0.2" type="device">
+  <diagram name="Seite-1" id="ZR3AUQFtXwOfWbFtIW8Y">
+    <mxGraphModel dx="1618" dy="937" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="IdZBOV0AHFT9FFBBmJ4d-79" value="Web-Server" style="" parent="0" />
+        <UserObject label="Web Server" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-80">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=#eeeeee;verticalAlign=top;strokeColor=none;fontSize=15;" parent="IdZBOV0AHFT9FFBBmJ4d-79" vertex="1">
+            <mxGeometry x="43" y="810" width="120" height="390" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <mxCell id="1" style="" parent="0" />
+        <UserObject label="OSB Node&lt;br&gt;CentOS8 VM on MBP13" tags="Machines All" id="-GDkXeGIMf8QknxY-I6k-87">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=#eeeeee;verticalAlign=top;strokeColor=none;fontSize=15;align=center;spacingLeft=0;spacingRight=60;" parent="1" vertex="1">
+            <mxGeometry x="823" y="660" width="630" height="553.03" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Users" id="IdZBOV0AHFT9FFBBmJ4d-5">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=default;verticalAlign=top;strokeColor=#0080F0;fontSize=12;labelBackgroundColor=none;shadow=0;dashed=0;spacing=-2;" parent="1" vertex="1">
+            <mxGeometry x="1273" y="756.3" width="100.25" height="430" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Users" id="-GDkXeGIMf8QknxY-I6k-76">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=default;verticalAlign=top;strokeColor=#0080F0;fontSize=12;labelBackgroundColor=none;shadow=0;dashed=0;spacing=-2;" parent="1" vertex="1">
+            <mxGeometry x="833" y="756.3" width="410" height="430" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="OSB Installation with the live-scripting approach" tags="All" id="-GDkXeGIMf8QknxY-I6k-8">
+          <mxCell style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=13;" parent="1" vertex="1">
+            <mxGeometry x="533" y="620" width="488" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Jumphost&lt;br&gt;MBP13 (MacOS)" tags="Machines All" id="-GDkXeGIMf8QknxY-I6k-75">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=#eeeeee;verticalAlign=top;strokeColor=none;fontSize=15;" parent="1" vertex="1">
+            <mxGeometry x="663" y="660" width="140" height="550" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All OSB_manage OSB_Create" id="IdZBOV0AHFT9FFBBmJ4d-23">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fillColor=#fff2cc;gradientColor=#ffd966;strokeColor=#d6b656;startArrow=classic;startFill=1;" parent="1" source="-GDkXeGIMf8QknxY-I6k-77" target="-GDkXeGIMf8QknxY-I6k-81" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="OSB Domain" tags="OSB_Create OSB_manage All" id="-GDkXeGIMf8QknxY-I6k-77">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;strokeColor=#d6b656;fillColor=none;gradientColor=#ffd966;dashed=1;strokeWidth=2;verticalAlign=top;dashPattern=1 1;arcSize=4;spacing=0;spacingTop=-4;" parent="1" vertex="1">
+            <mxGeometry x="913" y="824" width="307" height="109" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="AdminServer&amp;nbsp;" tags="OSB_Create OSB_manage All" id="-GDkXeGIMf8QknxY-I6k-78">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;fontSize=10;" parent="1" vertex="1">
+            <mxGeometry x="928.0000000000001" y="842" width="130" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Managed Server1" tags="OSB_Create OSB_manage All" id="-GDkXeGIMf8QknxY-I6k-79">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;fontSize=10;" parent="1" vertex="1">
+            <mxGeometry x="928.0000000000001" y="887" width="130" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Nodemanager" tags="OSB_Create OSB_manage All" id="-GDkXeGIMf8QknxY-I6k-80">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;fontSize=10;" parent="1" vertex="1">
+            <mxGeometry x="1079" y="842" width="130" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Oracle XE" tags="All OSB_RCU OSB_manage OSB_Create" id="-GDkXeGIMf8QknxY-I6k-81">
+          <mxCell style="aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image;image=img/lib/active_directory/database.svg;" parent="1" vertex="1">
+            <mxGeometry x="1295.5" y="923" width="50" height="37" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Managed Server2" tags="OSB_Create OSB_manage All" id="-GDkXeGIMf8QknxY-I6k-82">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;gradientColor=#ffd966;fontSize=10;" parent="1" vertex="1">
+            <mxGeometry x="1079" y="887" width="130" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Workstation&lt;br&gt;MBP16 (MacOS)" tags="Machines All" id="-GDkXeGIMf8QknxY-I6k-86">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=#eeeeee;verticalAlign=top;strokeColor=none;fontSize=15;" parent="1" vertex="1">
+            <mxGeometry x="183" y="660" width="460" height="550" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="parallels" tags="All Users" id="-GDkXeGIMf8QknxY-I6k-90">
+          <mxCell style="html=1;verticalLabelPosition=top;align=center;labelBackgroundColor=none;verticalAlign=bottom;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.user;spacing=-2;labelPosition=center;fontColor=#007cf0;" parent="1" vertex="1">
+            <mxGeometry x="1203" y="690" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="wls" tags="All Users" id="-GDkXeGIMf8QknxY-I6k-92">
+          <mxCell style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=none;verticalAlign=top;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.user;spacing=-2;fontColor=#007cf0;labelPosition=center;" parent="1" vertex="1">
+            <mxGeometry x="1203" y="770" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="oracle" tags="All Users" id="-GDkXeGIMf8QknxY-I6k-94">
+          <mxCell style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=none;verticalAlign=bottom;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.user;spacing=13;fontColor=#007cf0;" parent="1" vertex="1">
+            <mxGeometry x="1305.5" y="770" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="control.sh" tags="OSB_manage All" id="-GDkXeGIMf8QknxY-I6k-96">
+          <mxCell style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.script_file;pointerEvents=1;labelPosition=center;" parent="1" vertex="1">
+            <mxGeometry x="853" y="900.1000000000001" width="27.5" height="28.95" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All OSB_Install" id="IdZBOV0AHFT9FFBBmJ4d-4">
+          <mxCell style="group" parent="1" vertex="1" connectable="0">
+            <mxGeometry x="926" y="972" width="298" height="90" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Java" tags="All OSB_Install" id="-GDkXeGIMf8QknxY-I6k-101">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" parent="IdZBOV0AHFT9FFBBmJ4d-4" vertex="1">
+            <mxGeometry x="0.5" y="60" width="297" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="FMW" tags="All OSB_Install" id="-GDkXeGIMf8QknxY-I6k-102">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;" parent="IdZBOV0AHFT9FFBBmJ4d-4" vertex="1">
+            <mxGeometry x="0.5" y="30" width="297" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="OSB" tags="All OSB_Install" id="-GDkXeGIMf8QknxY-I6k-103">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;" parent="IdZBOV0AHFT9FFBBmJ4d-4" vertex="1">
+            <mxGeometry x="0.5" width="297" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="sqlplus" tags="All" id="IdZBOV0AHFT9FFBBmJ4d-20">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;gradientColor=#7ea6e0;" parent="1" vertex="1">
+            <mxGeometry x="1295.5" y="840" width="50" height="29" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="create schemes" tags="All OSB_RCU" id="IdZBOV0AHFT9FFBBmJ4d-22">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-21" target="-GDkXeGIMf8QknxY-I6k-81" edge="1">
+            <mxGeometry x="-0.1231" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="RCU Tool" tags="All OSB_RCU" id="IdZBOV0AHFT9FFBBmJ4d-21">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;gradientColor=#ffd966;" parent="1" vertex="1">
+            <mxGeometry x="1143" y="1130" width="50" height="29" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="manage" tags="All OSB_manage" id="IdZBOV0AHFT9FFBBmJ4d-24">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fillColor=#cce5ff;strokeColor=#36393d;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="-GDkXeGIMf8QknxY-I6k-96" target="-GDkXeGIMf8QknxY-I6k-77" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="867" y="880" />
+                <mxPoint x="877" y="880" />
+                <mxPoint x="877" y="879" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All OSB_Install" id="IdZBOV0AHFT9FFBBmJ4d-28">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.795;entryY=0.964;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-25" target="-GDkXeGIMf8QknxY-I6k-101" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All OSB_Install" id="IdZBOV0AHFT9FFBBmJ4d-29">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.931;entryY=1.012;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-25" target="-GDkXeGIMf8QknxY-I6k-103" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="Binary Installer" tags="All OSB_Install" id="IdZBOV0AHFT9FFBBmJ4d-25">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;gradientColor=#ffd966;" parent="1" vertex="1">
+            <mxGeometry x="926.5" y="1087" width="190" height="29" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All OSB_Install" id="IdZBOV0AHFT9FFBBmJ4d-26">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.854;entryY=0.994;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-25" target="-GDkXeGIMf8QknxY-I6k-102" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="create user" tags="All Users" id="IdZBOV0AHFT9FFBBmJ4d-30">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.477;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="-GDkXeGIMf8QknxY-I6k-90" target="-GDkXeGIMf8QknxY-I6k-92" edge="1">
+            <mxGeometry x="0.001" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="create user" tags="All Users" id="IdZBOV0AHFT9FFBBmJ4d-31">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.623;entryY=0.027;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="-GDkXeGIMf8QknxY-I6k-90" target="-GDkXeGIMf8QknxY-I6k-94" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Users" id="IdZBOV0AHFT9FFBBmJ4d-32">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=default;verticalAlign=top;strokeColor=#0080F0;fontSize=12;labelBackgroundColor=none;shadow=0;dashed=0;spacing=-2;" parent="1" vertex="1">
+            <mxGeometry x="682.75" y="760" width="100.25" height="430" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="asamadhi" tags="All Users" id="IdZBOV0AHFT9FFBBmJ4d-33">
+          <mxCell style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=none;verticalAlign=bottom;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.user;spacing=13;fontColor=#007cf0;" parent="1" vertex="1">
+            <mxGeometry x="717.87" y="770" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="ssh" tags="All OSB_Install" id="IdZBOV0AHFT9FFBBmJ4d-39">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-34" target="IdZBOV0AHFT9FFBBmJ4d-25" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="733" y="1100" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="ssh" tags="All OSB_RCU" id="IdZBOV0AHFT9FFBBmJ4d-41">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-34" target="IdZBOV0AHFT9FFBBmJ4d-21" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="733" y="1152" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="ssh" tags="OSB_Create All" id="IdZBOV0AHFT9FFBBmJ4d-75">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-34" target="IdZBOV0AHFT9FFBBmJ4d-73" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="ssh&amp;nbsp;" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-34">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;fontSize=10;gradientColor=#d5739d;" parent="1" vertex="1">
+            <mxGeometry x="707.87" y="985.53" width="50" height="29" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="html" tags="OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-38">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-35" target="-GDkXeGIMf8QknxY-I6k-78" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="ssh tunnel" tags="OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-35">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;fontSize=10;gradientColor=#d5739d;" parent="1" vertex="1">
+            <mxGeometry x="707.87" y="842.5000000000001" width="50" height="29" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Users" id="IdZBOV0AHFT9FFBBmJ4d-36">
+          <mxCell style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=default;verticalAlign=top;strokeColor=#0080F0;fontSize=12;labelBackgroundColor=none;shadow=0;dashed=0;spacing=-2;" parent="1" vertex="1">
+            <mxGeometry x="203" y="756.3" width="420" height="433.7" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="aupeksha" tags="All Users" id="IdZBOV0AHFT9FFBBmJ4d-37">
+          <mxCell style="html=1;verticalLabelPosition=bottom;align=center;labelBackgroundColor=none;verticalAlign=bottom;strokeWidth=2;strokeColor=#0080F0;shadow=0;dashed=0;shape=mxgraph.ios7.icons.user;spacing=13;fontColor=#007cf0;" parent="1" vertex="1">
+            <mxGeometry x="415.5" y="770" width="30" height="30" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Emacs/Orgmode" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All Documentation" id="-GDkXeGIMf8QknxY-I6k-63">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=1;fillColor=#CCCCFF;verticalAlign=top;strokeColor=#3700CC;fontSize=14;fontColor=#000000;gradientColor=#E5CCFF;" parent="1" vertex="1">
+            <mxGeometry x="343" y="947.5" width="258.5" height="110.5" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="execute" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-48">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-GDkXeGIMf8QknxY-I6k-65" target="IdZBOV0AHFT9FFBBmJ4d-42" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="live-scripting_osb.org" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All Documentation" id="-GDkXeGIMf8QknxY-I6k-65">
+          <mxCell style="sketch=0;aspect=fixed;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;fillColor=#00188D;shape=mxgraph.azure.file" parent="1" vertex="1">
+            <mxGeometry x="415.5" y="982.47" width="33" height="35.11" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="HTML &lt;br&gt;Documentation" tags="All Documentation" id="-GDkXeGIMf8QknxY-I6k-66">
+          <mxCell style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.web_page;" parent="1" vertex="1">
+            <mxGeometry x="253" y="884.0999999999999" width="50" height="54" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="html" tags="OSB_manage All" id="-GDkXeGIMf8QknxY-I6k-67">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="-GDkXeGIMf8QknxY-I6k-68" target="IdZBOV0AHFT9FFBBmJ4d-35" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="358.7500000000002" y="658" as="targetPoint" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-76">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-GDkXeGIMf8QknxY-I6k-68" target="IdZBOV0AHFT9FFBBmJ4d-58" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="access html documentation" tags="OSB_manage All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-77">
+          <mxCell style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="IdZBOV0AHFT9FFBBmJ4d-76" vertex="1" connectable="0">
+            <mxGeometry x="-0.4297" y="-1" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="Web Browser&amp;nbsp;" tags="OSB_manage All Documentation" id="-GDkXeGIMf8QknxY-I6k-68">
+          <mxCell style="aspect=fixed;html=1;points=[];align=center;image;fontSize=14;image=img/lib/azure2/general/Browser.svg;" parent="1" vertex="1">
+            <mxGeometry x="472.13" y="829.9" width="67.75" height="54.2" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Documentation" id="-GDkXeGIMf8QknxY-I6k-69">
+          <mxCell style="group" parent="1" vertex="1" connectable="0">
+            <mxGeometry x="252" y="1045.4" width="52" height="61.1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Documentation" id="-GDkXeGIMf8QknxY-I6k-70">
+          <mxCell style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.document;" parent="-GDkXeGIMf8QknxY-I6k-69" vertex="1">
+            <mxGeometry width="52" height="61.09999999999997" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="PDF Documenation" tags="All Documentation" id="-GDkXeGIMf8QknxY-I6k-71">
+          <mxCell style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.adobe_pdf;fillColor=#F40C0C;gradientColor=#610603" parent="-GDkXeGIMf8QknxY-I6k-69" vertex="1">
+            <mxGeometry x="7.155963302752294" y="21.025040993206854" width="33.394495412844044" height="33.39579917232762" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="generate" tags="All Documentation" id="-GDkXeGIMf8QknxY-I6k-72">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="-GDkXeGIMf8QknxY-I6k-65" target="-GDkXeGIMf8QknxY-I6k-70" edge="1">
+            <mxGeometry x="0.2363" y="8" relative="1" as="geometry">
+              <mxPoint x="195.00000000000023" y="391.25" as="sourcePoint" />
+              <mxPoint x="144.50000000000023" y="473.5" as="targetPoint" />
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="ssh" tags="All OSB_manage" id="IdZBOV0AHFT9FFBBmJ4d-40">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.149;entryY=0.521;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-34" target="-GDkXeGIMf8QknxY-I6k-96" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="733" y="915" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="ssh" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-43">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-42" target="IdZBOV0AHFT9FFBBmJ4d-34" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="access&lt;br&gt;files" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-55">
+          <mxCell style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-42" target="IdZBOV0AHFT9FFBBmJ4d-53" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="ansi-term" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-42">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e6d0de;strokeColor=#996185;fontSize=10;gradientColor=#d5739d;" parent="1" vertex="1">
+            <mxGeometry x="543" y="985.53" width="50" height="29" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Git Repo" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-49">
+          <mxCell style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.git_repository;" parent="1" vertex="1">
+            <mxGeometry x="407" y="1087.5" width="50" height="50" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="access files" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-52">
+          <mxCell style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.76;entryY=0.24;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-42" target="IdZBOV0AHFT9FFBBmJ4d-49" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="Binary Distributions&amp;nbsp;&lt;br&gt;(Java, FMW, OSB)" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-53">
+          <mxCell style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/folder.svg;" parent="1" vertex="1">
+            <mxGeometry x="549.75" y="1083.8" width="36.5" height="50" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Documentation" id="-GDkXeGIMf8QknxY-I6k-73">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-GDkXeGIMf8QknxY-I6k-65" target="-GDkXeGIMf8QknxY-I6k-66" edge="1">
+            <mxGeometry x="-0.0521" relative="1" as="geometry">
+              <mxPoint as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <UserObject label="HTML &lt;br&gt;Documentation" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-58">
+          <mxCell style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.web_page;" parent="1" vertex="1">
+            <mxGeometry x="84" y="885.0999999999999" width="50" height="54" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-65">
+          <mxCell style="group" parent="1" vertex="1" connectable="0">
+            <mxGeometry x="82" y="1046.9" width="52" height="61.1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-66">
+          <mxCell style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#505050;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;outlineConnect=0;align=center;shape=mxgraph.office.concepts.document;" parent="IdZBOV0AHFT9FFBBmJ4d-65" vertex="1">
+            <mxGeometry width="52" height="61.09999999999997" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="PDF Documenation" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-67">
+          <mxCell style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.webicons.adobe_pdf;fillColor=#F40C0C;gradientColor=#610603" parent="IdZBOV0AHFT9FFBBmJ4d-65" vertex="1">
+            <mxGeometry x="7.155963302752294" y="21.025040993206854" width="33.394495412844044" height="33.39579917232762" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="aws s3 upload" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-69">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-GDkXeGIMf8QknxY-I6k-70" target="IdZBOV0AHFT9FFBBmJ4d-66" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="aws s3 upload" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-68">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="-GDkXeGIMf8QknxY-I6k-66" target="IdZBOV0AHFT9FFBBmJ4d-58" edge="1">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="WLST" tags="OSB_Create All" id="IdZBOV0AHFT9FFBBmJ4d-73">
+          <mxCell style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;gradientColor=#ffd966;" parent="1" vertex="1">
+            <mxGeometry x="843" y="985.58" width="60" height="29" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="create domain" tags="OSB_Create All" id="IdZBOV0AHFT9FFBBmJ4d-74">
+          <mxCell style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.457;entryY=1.011;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="IdZBOV0AHFT9FFBBmJ4d-73" target="-GDkXeGIMf8QknxY-I6k-77" edge="1">
+            <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                <mxPoint x="873" y="960" />
+                <mxPoint x="1053" y="960" />
+                <mxPoint x="1053" y="934" />
+              </Array>
+            </mxGeometry>
+          </mxCell>
+        </UserObject>
+        <mxCell id="IdZBOV0AHFT9FFBBmJ4d-78" value="S3-static-web" parent="0" visible="0" />
+        <mxCell id="IdZBOV0AHFT9FFBBmJ4d-57" value="" style="whiteSpace=wrap;html=1;fillColor=none;fontColor=#000000;strokeColor=#FF8000;strokeWidth=2;" parent="IdZBOV0AHFT9FFBBmJ4d-78" vertex="1">
+          <mxGeometry x="30" y="780" width="140" height="390" as="geometry" />
+        </mxCell>
+        <mxCell id="IdZBOV0AHFT9FFBBmJ4d-56" value="S3 static web site" style="sketch=0;pointerEvents=1;shadow=0;dashed=0;html=1;strokeColor=none;fillColor=#DF8C42;labelPosition=right;verticalLabelPosition=middle;verticalAlign=middle;align=left;outlineConnect=0;shape=mxgraph.veeam2.aws_s3;" parent="IdZBOV0AHFT9FFBBmJ4d-78" vertex="1">
+          <mxGeometry x="30" y="780" width="34" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="IdZBOV0AHFT9FFBBmJ4d-82" value="Numbers" parent="0" />
+        <UserObject label="6" tags="All Documentation" id="IdZBOV0AHFT9FFBBmJ4d-81">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fontFamily=Tahoma;spacingBottom=4;spacingRight=2;strokeColor=#B20000;fillColor=#e51400;fontColor=#ffffff;" parent="IdZBOV0AHFT9FFBBmJ4d-82" vertex="1">
+            <mxGeometry x="253" y="990" width="20" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="1" tags="All" id="IdZBOV0AHFT9FFBBmJ4d-83">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fontFamily=Tahoma;spacingBottom=4;spacingRight=2;strokeColor=#B20000;fillColor=#e51400;fontColor=#ffffff;" parent="IdZBOV0AHFT9FFBBmJ4d-82" vertex="1">
+            <mxGeometry x="1173" y="700" width="20" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="5" tags="OSB_Create All" id="IdZBOV0AHFT9FFBBmJ4d-84">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fontFamily=Tahoma;spacingBottom=4;spacingRight=2;strokeColor=#B20000;fillColor=#e51400;fontColor=#ffffff;" parent="IdZBOV0AHFT9FFBBmJ4d-82" vertex="1">
+            <mxGeometry x="853" y="960" width="20" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="4" tags="All" id="IdZBOV0AHFT9FFBBmJ4d-85">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fontFamily=Tahoma;spacingBottom=4;spacingRight=2;strokeColor=#B20000;fillColor=#e51400;fontColor=#ffffff;" parent="IdZBOV0AHFT9FFBBmJ4d-82" vertex="1">
+            <mxGeometry x="903" y="1040" width="20" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="3" tags="OSB_Create OSB_Install OSB_RCU OSB_manage All" id="IdZBOV0AHFT9FFBBmJ4d-86">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fontFamily=Tahoma;spacingBottom=4;spacingRight=2;strokeColor=#B20000;fillColor=#e51400;fontColor=#ffffff;" parent="IdZBOV0AHFT9FFBBmJ4d-82" vertex="1">
+            <mxGeometry x="703" y="960" width="20" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+        <UserObject label="2" tags="All" id="IdZBOV0AHFT9FFBBmJ4d-87">
+          <mxCell style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;strokeWidth=2;fontFamily=Tahoma;spacingBottom=4;spacingRight=2;strokeColor=#B20000;fillColor=#e51400;fontColor=#ffffff;" parent="IdZBOV0AHFT9FFBBmJ4d-82" vertex="1">
+            <mxGeometry x="1333" y="900" width="20" height="20" as="geometry" />
+          </mxCell>
+        </UserObject>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

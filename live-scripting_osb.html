@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2023-10-20 Fri 10:10 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Installation of Oracle OSB using Live-Scripting medthod</title>
+<meta name="author" content="Andreas Wittmann" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="org.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="styles/readtheorg/css/readtheorg.css"/>
+<script type="text/javascript" src="styles/lib/js/jquery.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="styles/readtheorg/js/readtheorg.js"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Installation of Oracle OSB using Live-Scripting medthod</h1>
+<p>
+#xxx+OPTIONS: toc:4 H:4
+</p>
+<div class="abstract" id="orgfa60398">
+<p>
+This report describes the installation of Oracle FMW and OSB using the Live-Scripting-Method
+</p>
+
+</div>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">PDF</td>
+<td class="org-left"><a href="live-scripting_osb.pdf">live-scripting_osb.pdf</a></td>
+</tr>
+
+<tr>
+<td class="org-left">HTML Documentation</td>
+<td class="org-left"><a href="live-scripting_osb.html">live-scripting_osb.html</a></td>
+</tr>
+</tbody>
+</table>
+
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgad33493">1. Introduction</a>
+<ul>
+<li><a href="#org0203e78">1.1. Motivation</a></li>
+<li><a href="#orge42616f">1.2. Architecture</a></li>
+</ul>
+</li>
+<li><a href="#org3bfcfa5">2. Linux Installation</a>
+<ul>
+<li><a href="#org65c9b64">2.1. Download and Check Sums</a></li>
+<li><a href="#org9f94a62">2.2. Installing the VM</a></li>
+<li><a href="#orgbbe0d3c">2.3. Snapshot01</a></li>
+<li><a href="#org65c6731">2.4. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#org7e36cb3">3. Database Setup</a>
+<ul>
+<li><a href="#org6f44be6">3.1. Creating SSH Trust for the user <i>parallels</i></a>
+<ul>
+<li><a href="#orga2c70d2">3.1.1. <span class="done DONE">DONE</span> Problem: SSH-Connection with public keys does not work.</a></li>
+</ul>
+</li>
+<li><a href="#org8ee4861">3.2. Database Installation</a></li>
+<li><a href="#org8b53ac6">3.3. Autostart Configuration</a></li>
+<li><a href="#org148058c">3.4. Database Operation</a></li>
+<li><a href="#org84970e6">3.5. Snapshot02</a></li>
+<li><a href="#org796a740">3.6. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#orge790815">4. Preparing the FMW Installation</a>
+<ul>
+<li><a href="#orga697c8c">4.1. Setup of the installation user</a></li>
+<li><a href="#org662a3e3">4.2. Creating SSH Trust</a></li>
+<li><a href="#org5df6ac6">4.3. Copying the Oracle Distributions</a></li>
+</ul>
+</li>
+<li><a href="#orgfd9ec5b">5. Installation für FMW</a>
+<ul>
+<li><a href="#orgc7ce704">5.1. Templates</a></li>
+<li><a href="#orgf0047e3">5.2. Java Installation</a></li>
+<li><a href="#orgf0b57a1">5.3. FWM Installation</a></li>
+<li><a href="#orga85c53d">5.4. OSB Installation</a></li>
+<li><a href="#org7a223e7">5.5. Cleaning up</a></li>
+</ul>
+</li>
+<li><a href="#orgec12159">6. Creating the OSB Domain</a>
+<ul>
+<li><a href="#org500ae10">6.1. Checking the database</a>
+<ul>
+<li><a href="#org305e3de">6.1.1. Starting and stopping the database</a></li>
+<li><a href="#org369ecb3">6.1.2. Verifying the database listener</a></li>
+</ul>
+</li>
+<li><a href="#org753f0a0">6.2. Running the RCU tool</a></li>
+<li><a href="#orgd6dd231">6.3. OSB domain creation</a></li>
+<li><a href="#org394a0bd">6.4. Starting the OSB domain</a></li>
+<li><a href="#org7e342d8">6.5. Snapshot03</a></li>
+<li><a href="#org88b4c2f">6.6. Conclusion</a></li>
+</ul>
+</li>
+<li><a href="#org90d73ab">7. Appendix</a>
+<ul>
+<li><a href="#org9def79a">7.1. Problem: Oracle Express Database needs RHEL 8.</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgad33493" class="outline-2">
+<h2 id="orgad33493"><span class="section-number-2">1.</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This project demonstrates the live-scripting process, which combines command-line-work and documentation in the context of an Oracle Service Bus installation. 
+</p>
+</div>
+
+<div id="outline-container-org0203e78" class="outline-3">
+<h3 id="org0203e78"><span class="section-number-3">1.1.</span> Motivation</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Oracle Service Bus (OSB) is widely utilized, boasting a substantial installation base. Although new projects are currently rare, its complex environment prevails. Expertise is often sought after for version migrations and the integration of new solutions. 
+In the context of Oracle Service Bus (OSB) installation, live-scripting is a powerful approach that combines the execution of command-line operations with detailed documentation to create a reliable and well-documented installation process. Live-scripting benefits OSB installation in the following ways:
+</p>
+
+<p>
+<b>Reproducibility:</b> Live-scripting ensures that the OSB installation process is reproducible, meaning that anyone following the documented steps can achieve the same results. This is particularly important in enterprise environments, where consistency and reliability are paramount. Even if the installation needs to be repeated months or years later, the documented process guarantees the same outcome.
+</p>
+
+<p>
+<b>Documentation:</b> The process of live-scripting creates precise documentation that captures each step involved in the process. This documentation goes beyond simple command lists; it includes explanations, diagrams, attachments  and solutions to potential issues that may arise. This detailed documentation is invaluable for troubleshooting, auditing, and knowledge transfer within an organization.
+</p>
+
+<p>
+<b>Quality Assurance:</b> Live-scripting serves as a form of quality assurance. The fact that the documented process has been tested and verified during writing, ensures that the documented solution is reliably working and the chances of errors and misconfigurations is minimal.
+</p>
+
+<p>
+<b>Knowledge Sharing:</b> The live-scripting approach makes knowledge sharing much more accessible. Team members can easily follow the step-by-step instructions, regardless of their level of expertise. Even if they don't want to use Emacs, the solution can be reproduced using a copy-and-paste approach. It accelerates the training process for new team members and can help disseminate best practices across the organization.
+</p>
+
+<p>
+<b>Flexibility and adaptability:</b> Live-scripting isn't limited to a one-size-fits-all approach. It can be adapted and extended as needed. Users can modify the documented process to accommodate unique requirements or make improvements over time without sacrificing the stability and reliability of the installation.
+</p>
+
+<p>
+<b>Efficiency:</b> Live-scripting streamlines the installation process by providing a clear and efficient path from start to finish. It minimizes the time and effort required to set up OSB, making it more accessible for both experienced and novice users.
+</p>
+
+<p>
+In contrast to a fully automated setup, which is often used in large OSB installations, encompassing hundreds of domains and environments, the approach proposed by live-scripting does not require to write, test and maintain automation code. Live-scripting is best used in situations where only a limited number of environments are required. It ranges between a classical manual approach on the one hand and a fully automated solution on the other.
+In summary, live-scripting is a powerful methodology in the context of command-line-centered work, especially during OSB installation. It ensures a reproducible, well-documented, and reliable installation process, which is crucial in complex enterprise environments. This approach not only guarantees quality and consistency but also promotes knowledge sharing, adaptability, and efficiency in managing installations.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orge42616f" class="outline-3">
+<h3 id="orge42616f"><span class="section-number-3">1.2.</span> Architecture</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The architecture of the OSB domain is simple, it consists of an admin server and two cluster nodes, all running on a single machine. The architecture diagram, however, also depicts the machines and components required to install and set up the OSB domain.
+</p>
+
+<div id="orgffab285" class="figure">
+<p><img src="data/Introduction/2023-10-18_11-59-54_2023-10-18_11-59-16.png" alt="2023-10-18_11-59-54_2023-10-18_11-59-16.png" width="1200px" />
+</p>
+<p><span class="figure-number">Figure 1: </span>Architecture Diagram for the Installation of Oracle Service Bus</p>
+</div>
+
+<p>
+It uses three machines: A workstation for development and installation tasks, a jump host which adds a level of security and limits access to  the OSB environment, and a Linux node for running all components of the OSB domain.
+Since this project demonstrates the live-scripting approach, the workstation contains an Emacs installation that is prepared to execute shell commands in an <i>ansi-term</i>. It uses ssh to connect to the target machine via the jump server.
+The whole installation process can conceptually be broken down into six steps, which are depicted by the red numbered dots in the diagram.
+</p>
+
+<p>
+<b>Step 1:</b> In this step, the machine of the OSB node is provisioned. In my case, it is a virtual machine running on a MacBook Pro using Parallels as the hypervisor. The workstation is connected to the jump host using tailscale. It has no direct network connection to the VM. This situation resembles a typical setup in on-premise data centers and cloud environments. The Unix user <i>parallels</i> on this machine is used to create two additional users: <i>oracle</i> and <i>wls</i>, which will become the installation users for the database and the OSB environment, respectively. 
+</p>
+
+<p>
+<b>Step 2:</b> In this step, I install an Oracle Express Edition database, which is required for all FMW installations. It stores metadata for the operation of the OSB domain.
+</p>
+
+<p>
+<b>Step 3:</b> During this step, I will provide the prerequisites for the subsequent installations. This includes establishing ssh trust for the workstation user <i>aupeksha</i> to access the jump host and the OSB-Node and to copy the software distribution to the target machine.
+</p>
+
+<p>
+<b>Step 4:</b> This step consists of the software installation for Java, FMW and OSB. In a multi-machine environment, it would be necessary for every OSB node. In this simple example, however, there is only one machine.
+</p>
+
+<p>
+<b>Step 5:</b> In this step, the OSB domain is created. This starts with creating the database schemas using the RCU tool. The domain will be created with the WLST (WebLogic Scripting Tool), which executes a Python script that runs the necessary installation and configuration tasks.
+</p>
+
+<p>
+<b>Step 6:</b> The documentation is an integral part of the live-scripting approach. It is generated directly in the Emacs editor as a static HTML page and a PDF file. Both are published to a web server.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org3bfcfa5" class="outline-2">
+<h2 id="org3bfcfa5"><span class="section-number-2">2.</span> Linux Installation</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+I create a new CentOS VM, using <i>Parallels Desktop</i>.
+</p>
+</div>
+
+<div id="outline-container-org65c9b64" class="outline-3">
+<h3 id="org65c9b64"><span class="section-number-3">2.1.</span> Download and Check Sums</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+I use the Download Mirror. <a href="https://ftp.fau.de/centos/8-stream/isos/x86_64/">https://ftp.fau.de/centos/8-stream/isos/x86_64/</a>
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Verifying Checksum of CentOS8 installation file in a terminal</label><pre class="src src-bash"><span style="color: #505050;">## </span><span style="color: #505050;">On VM host machine: Samadhi</span>
+whoami; hostname; <span style="color: #8f0075;">pwd</span>
+
+<span style="color: #8f0075;">cd</span> ~/Downloads
+<span style="color: #505050;">#</span><span style="color: #505050;">SHA256 (CentOS-Stream-8-20231009.1-x86_64-dvd1.iso) = e9b7a2026ac7abc315638bcb2efe9482576b4fd7ff0e8759c6ec6861b1549be8</span>
+shasum -a 256 CentOS-Stream-8-20231009.1-x86_64-dvd1.iso <span style="color: #505050;"># </span><span style="color: #505050;">ok.</span>
+</pre>
+</div>
+<p>
+<b>Result:</b> The ISO-image for the installation of Centos 8 is available for installation with parallels desktop. The checksum is verified against the values from the down load website.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9f94a62" class="outline-3">
+<h3 id="org9f94a62"><span class="section-number-3">2.2.</span> Installing the VM</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+On the <i>Parallels Host</i> machine <i>Samadhi</i>, I will now install the ISO image  with the Prallels GUI Installer.
+Screenshots of the installation:  <a href="data/Linux_Installation/2023-10-13_15-56-11_2023-10-11_16-57-40-3.pdf">data/Linux_Installation/2023-10-13_15-56-11_2023-10-11_16-57-40-3.pdf</a>
+After the installation I login via ssh and check the os version .
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Basic Setup of CentOS VM</label><pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">Login to Linux Machine via Jump Host</span>
+ssh asamadhi@samadhi <span style="color: #505050;">#</span><span style="color: #505050;">Jumphost</span>
+password1
+
+<span style="color: #505050;">#</span><span style="color: #505050;">Centos8 VM</span>
+<span style="color: #505050;">## </span><span style="color: #505050;">user/pw parallels/ham2burg</span>
+ssh parallels@10.211.55.5 <span style="color: #505050;"># </span><span style="color: #505050;">Centos_8</span>
+ham2burg
+whoami; hostname; <span style="color: #8f0075;">pwd</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Check Release</span>
+cat /etc/os-release
+cat /etc/centos-release
+</pre>
+</div>
+
+<p>
+The release is printed out on the terminal. It is CentOS Version 8.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 3: </span>Displaying the OS Version</label><pre class="src src-ruby">[parallels<span style="color: #00538b;">@localhost</span> ~]$ <span style="color: #505050;">## </span><span style="color: #505050;">Check Release</span>
+[parallels<span style="color: #00538b;">@localhost</span> ~]$ cat /etc/os-release
+<span style="color: #005a5f;">NAME</span>=<span style="color: #2544bb;">"CentOS Stream"</span>
+<span style="color: #005a5f;">VERSION</span>=<span style="color: #2544bb;">"8"</span>
+<span style="color: #005a5f;">ID</span>=<span style="color: #2544bb;">"centos"</span>
+<span style="color: #005a5f;">ID_LIKE</span>=<span style="color: #2544bb;">"rhel fedora"</span>
+<span style="color: #005a5f;">VERSION_ID</span>=<span style="color: #2544bb;">"8"</span>
+<span style="color: #005a5f;">PLATFORM_ID</span>=<span style="color: #2544bb;">"platform:el8"</span>
+<span style="color: #005a5f;">PRETTY_NAME</span>=<span style="color: #2544bb;">"CentOS Stream 8"</span>
+<span style="color: #005a5f;">ANSI_COLOR</span>=<span style="color: #2544bb;">"0;31"</span>
+<span style="color: #005a5f;">CPE_NAME</span>=<span style="color: #2544bb;">"cpe:/o:centos:centos:8"</span>
+<span style="color: #005a5f;">HOME_URL</span>=<span style="color: #2544bb;">"https://centos.org/"</span>
+<span style="color: #005a5f;">BUG_REPORT_URL</span>=<span style="color: #2544bb;">"https://bugzilla.redhat.com/"</span>
+<span style="color: #005a5f;">REDHAT_SUPPORT_PRODUCT</span>=<span style="color: #2544bb;">"Red Hat Enterprise Linux 8"</span>
+<span style="color: #005a5f;">REDHAT_SUPPORT_PRODUCT_VERSION</span>=<span style="color: #2544bb;">"CentOS Stream"</span>
+[parallels<span style="color: #00538b;">@localhost</span> ~]$ cat /etc/centos-release
+<span style="color: #005a5f;">CentOS</span> <span style="color: #005a5f;">Stream</span> release 8
+</pre>
+</div>
+
+<p>
+I want to allow user <i>parallels</i> to sudo without password. This can be done with visudo which is an interactive editing task. 
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 4: </span>Sudo configuration for user parallels</label><pre class="src src-bash"><span style="color: #505050;"># </span><span style="color: #505050;">User /parallels/ is allowed to sudo without password</span>
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Use   ~sudo visudo~  and insert this line.</span>
+/parallels <span style="color: #00538b;">ALL</span>=(ALL) NOPASSWD: ALL/
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The CentOS8 VM is installed. Access via ssh is working. The user <i>parallels</i> can execute sudo without password. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbbe0d3c" class="outline-3">
+<h3 id="orgbbe0d3c"><span class="section-number-3">2.3.</span> Snapshot01</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+I take a snapshot of the CentOS_8 VM with the following contents.
+</p>
+
+<blockquote>
+<p>
+<b>Snapshot01:</b>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-12 Thu 12:03]</span></span>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Download CentOS Stream 8 using  the Parallels Desktop GUI</li>
+<li class="on"><code>[X]</code> Installation CentOS Stream 8</li>
+<li class="on"><code>[X]</code> User=parallels, password=ham2burg</li>
+<li class="on"><code>[X]</code> Parallels Tools Installation</li>
+<li class="on"><code>[X]</code> Automatic Login, Screensaver off, Autopower-off=false.</li>
+<li class="on"><code>[X]</code> Settings Network-&gt;Wired= on</li>
+<li class="on"><code>[X]</code> SSH Login with: parallels@10.211.55.5</li>
+<li class="on"><code>[X]</code> yum udpate</li>
+<li class="on"><code>[X]</code> Renaming VM to <i>CentOS_8</i></li>
+<li class="on"><code>[X]</code> Allocating 4 CPUs and 8 GB RAM</li>
+<li class="on"><code>[X]</code> Creating <i>Snapshot01</i></li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org65c6731" class="outline-3">
+<h3 id="org65c6731"><span class="section-number-3">2.4.</span> Conclusion</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+The Centos_8 VM is set up. Remote login with user parallels is working. A snapshot of the VM is saved.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7e36cb3" class="outline-2">
+<h2 id="org7e36cb3"><span class="section-number-2">3.</span> Database Setup</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+The FMW-installation requires a database for configuration data and runtime metrics.
+In this step I will setup and configure the <i>Oracle Express Edition Database</i>.
+</p>
+</div>
+
+<div id="outline-container-org6f44be6" class="outline-3">
+<h3 id="org6f44be6"><span class="section-number-3">3.1.</span> Creating SSH Trust for the user <i>parallels</i></h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-12 Thu 12:21]</span></span>
+I want to have key-based ssh-login for the users <i>parallels</i>.  It should share a common key-pair with other users: <i>lab_key</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #505050;"># </span><span style="color: #505050;">Listing: Creating SSH Trust for user parallels</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">We start on the workstation</span>
+<span style="color: #505050;">## </span><span style="color: #505050;">Test connection to Jumphost and VM</span>
+ssh asamadhi@samadhi <span style="color: #2544bb;">"hostname; whoami"</span>   <span style="color: #505050;"># </span><span style="color: #505050;">JumpHost via tailscale</span>
+ssh -J asamadhi@samadhi   parallels@10.211.55.5 <span style="color: #2544bb;">"hostname; whoami"</span>
+password1
+password2
+<span style="color: #505050;">### </span><span style="color: #505050;">Create public/private key-pair for communication with multiple machines on jump host</span>
+hostname; whoami
+<span style="color: #8f0075;">cd</span> ~/.ssh
+ls -la
+ssh-keygen -t ed25519 -C <span style="color: #2544bb;">"lab_key"</span>
+lab_key
+
+
+<span style="color: #505050;">## </span><span style="color: #505050;">copy public+private key to jumphost</span>
+ls -la
+scp asamadhi.pub asamadhi@samadhi:/Users/asamadhi/.ssh/
+scp lab_key.pub asamadhi@samadhi:/Users/asamadhi/.ssh/
+scp lab_key asamadhi@samadhi:/Users/asamadhi/.ssh/
+password1
+<span style="color: #505050;">## </span><span style="color: #505050;">paste public key to authorized keys for user asamadhi</span>
+ssh asamadhi@samadhi  <span style="color: #2544bb;">"cat /Users/asamadhi/.ssh/lab_key.pub &gt;&gt; /Users/asamadhi/.ssh/authorized_keys"</span>
+ssh asamadhi@samadhi  <span style="color: #2544bb;">"chmod 600 /Users/asamadhi/.ssh/authorized_keys"</span>
+ssh asamadhi@samadhi  <span style="color: #2544bb;">"cat  /Users/asamadhi/.ssh/authorized_keys"</span>
+ssh asamadhi@samadhi  <span style="color: #2544bb;">"ls -la  /Users/asamadhi/.ssh/"</span>
+password1
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Add config entry for jumphost</span>
+cat ~/.ssh/config
+cat &lt;&lt; <span style="color: #2544bb;">'EOF'</span> &gt;&gt;  ~/.ssh/config
+<span style="color: #2544bb;">Host jumphost</span>
+<span style="color: #2544bb;">     IdentitiesOnly yes</span>
+<span style="color: #2544bb;">     IdentityFile ~/.ssh/lab_key</span>
+<span style="color: #2544bb;">     Hostname samadhi</span>
+<span style="color: #2544bb;">     User asamadhi</span>
+<span style="color: #2544bb;">EOF</span>
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Test ssh trust</span>
+ssh -i ~/.ssh/lab_key asamadhi@samadhi  <span style="color: #2544bb;">"whoami; hostname; date"</span>
+ssh jumphost  <span style="color: #2544bb;">"whoami; hostname; date"</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">copy public key to VM from JumpHost</span>
+ssh -i ~/.ssh/lab_key asamadhi@samadhi
+hostname; whoami; <span style="color: #8f0075;">pwd</span>
+ls -la ~/.ssh/
+scp ~/.ssh/lab_key.pub parallels@10.211.55.5:/tmp/lab_key.pub
+ham2burg
+<span style="color: #505050;">## </span><span style="color: #505050;">paste public key to authorized keys for user parallels</span>
+ssh parallels@10.211.55.5 
+ham2burg
+mkdir -p /home/parallels/.ssh
+cat /tmp/lab_key.pub &gt; /home/parallels/.ssh/authorized_keys
+chmod 600 /home/parallels/.ssh/authorized_keys
+cat /home/parallels/.ssh/authorized_keys
+<span style="color: #5317ac;">exit</span>
+<span style="color: #505050;"># </span><span style="color: #505050;">Test ssh trust on jumphost to CentOS8</span>
+ssh -i ~/.ssh/lab_key parallels@10.211.55.5 <span style="color: #2544bb;">"whoami; date"</span>
+ls -la  ~/.ssh/
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">samadhi</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Access via JumpHost</span>
+ssh -J  jumphost -i ~/.ssh/lab_key  parallels@10.211.55.5 <span style="color: #2544bb;">"whoami; hostname; date"</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Add config entry for centos VM</span>
+cat ~/.ssh/config
+cat &lt;&lt; <span style="color: #2544bb;">'EOF'</span> &gt;&gt;  ~/.ssh/config
+<span style="color: #2544bb;">Host centos8_parallels</span>
+<span style="color: #2544bb;">     IdentitiesOnly yes</span>
+<span style="color: #2544bb;">     IdentityFile ~/.ssh/lab_key</span>
+<span style="color: #2544bb;">     Hostname 10.211.55.5</span>
+<span style="color: #2544bb;">     User parallels</span>
+<span style="color: #2544bb;">     ProxyJump jumphost</span>
+<span style="color: #2544bb;">EOF</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Test direct access to centos VM via jumphost using config file</span>
+ssh centos8_parallels <span style="color: #2544bb;">"whoami; hostname; pwd"</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> SSH Trust ist now established for the users <i>parallels</i> using config file and key-authentication. This enables password-less ssh access via a jumphost to the centos VM.
+</p>
+</div>
+
+<div id="outline-container-orga2c70d2" class="outline-4">
+<h4 id="orga2c70d2"><span class="section-number-4">3.1.1.</span> <span class="done DONE">DONE</span> Problem: SSH-Connection with public keys does not work.</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-12 Thu 12:52]</span></span>
+Although I provide a valid key, the ssh command prompts for a password.
+</p>
+
+<p>
+<b>Analysis:</b> 
+I ran ssh with debug flag (-vvv)
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 5: </span>Debug output from the SSH command</label><pre class="src src-bash">debug1: Offering public key: /Users/asamadhi/.ssh/lab_key ED25519 SHA256:VlBgbKyKKJocYsRRVD9Qi9nN9XFDXf2uXN1wGf2P4Dg explicit
+debug3: send packet: type 50
+debug2: we sent a publickey packet, wait for reply
+debug3: receive packet: type 51
+Debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mic,password
+</pre>
+</div>
+
+<p>
+<b>Solution:</b> Changing the permissions of the directory <i>.ssh</i> on the CentOS8 machine solves the problem. <code>chmod 700 ~/.ssh</code>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8ee4861" class="outline-3">
+<h3 id="org8ee4861"><span class="section-number-3">3.2.</span> Database Installation</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+The database can be downlaoded: <a href="https://www.oracle.com/de/database/technologies/xe-downloads.html">Oracle Database Express Edition (XE) Downloads | Oracle Deutschland</a>
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Database Version and Checksum</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Oracle Database 21c Express Edition for Linux x64 ( OL8 )</td>
+<td class="org-left">(2,339,651,768 bytes - September 08, 2021)</td>
+<td class="org-left">[Sha256sum: f8357b432de33478549a76557e8c5220ec243710ed86115c65b0c2bc00a848db]</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Now I copy the database binaries to the target machine and  start the installer. After successful installation I configure a database and verify that it is working and the the listener is started.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 6: </span>Installation of Oracle Database including Smoke Tests.</label><pre class="src src-bash">
+<span style="color: #505050;">## </span><span style="color: #505050;">preparing target dist directory</span>
+ssh  centos8_parallels
+whoami; hostname; <span style="color: #8f0075;">pwd</span>
+sudo su
+ham2burg
+mkdir -p /opt/install/db
+chown parallels:parallels /opt/install
+chown parallels:parallels /opt/install/db
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">root</span>
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">centos8_parallles</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Checking and copying distribution form local workstation to centos VM</span>
+<span style="color: #8f0075;">cd</span> ~/LocalProjects/dist/db
+ls -la
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Check SHA256 of RPM</span>
+<span style="color: #505050;">#</span><span style="color: #505050;">Sha256sum: f8357b432de33478549a76557e8c5220ec243710ed86115c65b0c2bc00a848db</span>
+sha256sum oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm <span style="color: #505050;"># </span><span style="color: #505050;">ok.</span>
+
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Copy distributions VM</span>
+ls -la
+rsync -aP oracle-database-preinstall-21c-1.0-1.el8.x86_64.rpm <span style="color: #2544bb;">\</span>
+          oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm  centos8_parallels:/opt/install/db
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Check distributions as user parallels</span>
+ssh centos8_parallels  <span style="color: #2544bb;">"ls -la  /opt/install/db"</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Installation of Database as root</span>
+ssh  centos8_parallels
+whoami; hostname; <span style="color: #8f0075;">pwd</span>
+sudo su -
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Preinstallation</span>
+<span style="color: #8f0075;">cd</span> /opt/install/db
+yum -y localinstall  oracle-database-preinstall-21c-1.0-1.el8.x86_64.rpm
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Install Database</span>
+yum -y localinstall  oracle-database-xe-21c-1.0-1.ol8.x86_64.rpm
+<span style="color: #505050;"># </span><span style="color: #505050;">ok.</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Creating a Database</span>
+ls /etc/init.d/oracle-xe*
+/etc/init.d/oracle-xe-21c configure
+ham2burg
+ham2burg
+<span style="color: #505050;"># </span><span style="color: #505050;">ok.</span>
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">root</span>
+whoami
+<span style="color: #505050;">### </span><span style="color: #505050;">Testing the Database: as user user oracle </span>
+sudo su - oracle
+<span style="color: #8f0075;">export</span> <span style="color: #00538b;">ORACLE_SID</span>=XE 
+<span style="color: #8f0075;">export</span> <span style="color: #00538b;">ORAENV_ASK</span>=NO 
+ls /opt/oracle/product/21c/dbhomeXE/bin/oraenv
+. /opt/oracle/product/21c/dbhomeXE/bin/oraenv
+<span style="color: #8f0075;">set</span> <span style="color: #00538b;">ORACLE_HOME</span> = [] ? /opt/oracle/product/21c/dbhomeXE
+<span style="color: #8f0075;">echo</span> $<span style="color: #00538b;">ORACLE_HOME</span>
+ls -la $<span style="color: #00538b;">ORACLE_HOME</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">start sqlplus</span>
+<span style="color: #505050;">#</span><span style="color: #505050;">sqlplus sys/ham2burg@//localhost.localdomain:1521/XEPDB1 as sysdba</span>
+sqlplus sys/ham2burg@//localhost:1521/XEPDB1 as sysdba
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Check PDBs</span>
+<span style="color: #5317ac;">select</span> name from v$<span style="color: #00538b;">pdbs</span>;
+
+<span style="color: #505050;">## </span><span style="color: #505050;">connecting to default PDB</span>
+<span style="color: #505050;">#</span><span style="color: #505050;">conn sys/ham2burg@//localhost.localdomain:1521/XEPDB1 as sysdba</span>
+conn sys/ham2burg@//localhost:1521/XEPDB1 as sysdba
+<span style="color: #505050;">## </span><span style="color: #505050;">Ok. Successfully connected.</span>
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">sqlplus</span>
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">oracle</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">check listener</span>
+lsnrctl status
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The Oracle database is now installed. The listener is configured and started. Connection via sqlplus is working. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8b53ac6" class="outline-3">
+<h3 id="org8b53ac6"><span class="section-number-3">3.3.</span> Autostart Configuration</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+I want to configure the database for automatic start after machine boot.
+This is done on the Linux level.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 7: </span>Configuration of automatic database start</label><pre class="src src-bash">ssh centos8_parallels
+whoami; hostname
+
+sudo su
+
+systemctl daemon-reload
+systemctl enable oracle-xe-21c
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">root</span>
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">parallels</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The linux operating system is configured to start the database service automatically on machine boot.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org148058c" class="outline-3">
+<h3 id="org148058c"><span class="section-number-3">3.4.</span> Database Operation</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+The database can be started and stop with the <i>sysctl utility.</i>
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 8: </span>Starting, stopping and testing the database</label><pre class="src src-bash"><span style="color: #505050;">## </span><span style="color: #505050;">work on the CentOS8 as user parallels.</span>
+ssh centos8_parallels
+whoami; hostname
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Show Usage Message</span>
+sudo  /etc/init.d/oracle-xe-21c
+<span style="color: #505050;"># </span><span style="color: #505050;">Datenbank starten</span>
+sudo  /etc/init.d/oracle-xe-21c status
+sudo  /etc/init.d/oracle-xe-21c stop
+sudo  /etc/init.d/oracle-xe-21c start
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Checking the Listner</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">User must be oracle</span>
+sudo su - oracle
+<span style="color: #505050;">### </span><span style="color: #505050;">Setting Envrionment and checking listner</span>
+<span style="color: #8f0075;">export</span> <span style="color: #00538b;">ORACLE_SID</span>=XE 
+<span style="color: #8f0075;">export</span> <span style="color: #00538b;">ORAENV_ASK</span>=NO 
+. /opt/oracle/product/21c/dbhomeXE/bin/oraenv
+<span style="color: #8f0075;">set</span> <span style="color: #00538b;">ORACLE_HOME</span> = [] ? /opt/oracle/product/21c/dbhomeXE
+<span style="color: #8f0075;">echo</span> $<span style="color: #00538b;">ORACLE_HOME</span>
+ls -la $<span style="color: #00538b;">ORACLE_HOME</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">check listener</span>
+lsnrctl status
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">oracle</span>
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">centos8_paralles</span>
+whoami
+</pre>
+</div>
+
+<p>
+<b>Result:</b> This listing demonsrates how to control the database. It can be used to check the status of the database and the listener and to start and stop the database.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org84970e6" class="outline-3">
+<h3 id="org84970e6"><span class="section-number-3">3.5.</span> Snapshot02</h3>
+<div class="outline-text-3" id="text-3-5">
+<p>
+I take a snapshot of the CentOS_8 VM with the following contents.
+</p>
+<blockquote>
+<p>
+<b>Snapshot02:</b>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-12 Thu 14:45]</span></span>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Uploading RPMs for Oracle-Database-XE-21c Database</li>
+<li class="on"><code>[X]</code> Setting up SSH-Trust for user parallels.</li>
+<li class="on"><code>[X]</code> Installation of Oracle-Database-XE-21c Database</li>
+<li class="on"><code>[X]</code> Testing the database</li>
+<li class="on"><code>[X]</code> Lifecycle operations on database</li>
+<li class="on"><code>[X]</code> Automatic database start after reboot is tested.</li>
+<li class="on"><code>[X]</code> VM is powered of</li>
+<li class="on"><code>[X]</code> Creating <i>Snapshot02</i></li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org796a740" class="outline-3">
+<h3 id="org796a740"><span class="section-number-3">3.6.</span> Conclusion</h3>
+<div class="outline-text-3" id="text-3-6">
+<p>
+At this stage of development, the Oracle-Database-XE-21c is installed and starts automatically with the VM.
+The commands to start and stop the database are tested. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge790815" class="outline-2">
+<h2 id="orge790815"><span class="section-number-2">4.</span> Preparing the FMW Installation</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orga697c8c" class="outline-3">
+<h3 id="orga697c8c"><span class="section-number-3">4.1.</span> Setup of the installation user</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+I want to install OSB with a dedicated unix user: <i>wls</i>. It should be a login user and I want to establish ssh-trust for key-based ssh login.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 9: </span>Creating unix user wls and setting the password</label><pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">Login to VM</span>
+ssh centos8_parallels
+
+<span style="color: #505050;">### </span><span style="color: #505050;">create user wls</span>
+sudo useradd --defaults
+sudo useradd  --comment <span style="color: #2544bb;">"OSB User"</span>  --create-home  --user-group  wls
+sudo passwd wls
+ham2burg
+ham2burg
+
+<span style="color: #5317ac;">exit</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The user <i>wls</i> is now created and can login with a password.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org662a3e3" class="outline-3">
+<h3 id="org662a3e3"><span class="section-number-3">4.2.</span> Creating SSH Trust</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-06 Fri 10:06] </span></span> I want to have key-based login for the user <i>wls</i>. It should share a common key-pair: <i>lab_key</i>. Therefore the user wls must accept the public key <i>lab_key.pub</i>.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 10: </span>Creating SSH Trust for user wls</label><pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">We start on the workstation</span>
+<span style="color: #505050;">## </span><span style="color: #505050;">copy public key to the VM</span>
+whoami; hostname
+
+<span style="color: #8f0075;">cd</span> ~/.ssh/
+ls -la
+scp ~/.ssh/lab_key.pub centos8_parallels:/tmp/lab_key.pub
+<span style="color: #505050;"># </span><span style="color: #505050;">Add public key to authoried hosts.</span>
+ssh centos8_parallels
+
+<span style="color: #505050;">## </span><span style="color: #505050;">paste public key to authorized keys for user wls</span>
+sudo su - wls
+mkdir -p  /home/wls/.ssh/
+chmod 700  /home/wls/.ssh
+cat /tmp/lab_key.pub &gt; /home/wls/.ssh/authorized_keys
+chmod 600 /home/wls/.ssh/authorized_keys
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">wls</span>
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">parallels</span>
+
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Test ssh trust</span>
+ssh -J  jumphost -i ~/.ssh/lab_key  wls@10.211.55.5 <span style="color: #2544bb;">"whoami; hostname; date"</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Add config entry for centos VM</span>
+cat ~/.ssh/config
+cat &lt;&lt; <span style="color: #2544bb;">'EOF'</span> &gt;&gt;  ~/.ssh/config
+<span style="color: #2544bb;">Host centos8_wls</span>
+<span style="color: #2544bb;">     IdentitiesOnly yes</span>
+<span style="color: #2544bb;">     IdentityFile ~/.ssh/lab_key</span>
+<span style="color: #2544bb;">     Hostname 10.211.55.5</span>
+<span style="color: #2544bb;">     User wls</span>
+<span style="color: #2544bb;">     ProxyJump jumphost</span>
+<span style="color: #2544bb;">EOF</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Test direct access to centos VM via jumphost using config file</span>
+ssh centos8_wls <span style="color: #2544bb;">"whoami; hostname; pwd"</span>
+
+</pre>
+</div>
+
+<p>
+<b>Result:</b> SSH trust is now established for the users <i>parallels</i> and <i>wls</i> using config file and key-authentication. This enables password-less ssh access via a jumphost to the centos VM.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5df6ac6" class="outline-3">
+<h3 id="org5df6ac6"><span class="section-number-3">4.3.</span> Copying the Oracle Distributions</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+I have already downloaded the distribution for java, fmw, and osb to the workstation. In this step I copy it to the target machine.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 11: </span>Copying installation media files using rsync.</label><pre class="src src-bash"><span style="color: #505050;">###</span>
+whoami; hostname
+ssh centos8_parallels
+<span style="color: #505050;">### </span><span style="color: #505050;">create project installation base</span>
+sudo mkdir -p /opt/install/
+sudo chown -R  wls:wls /opt/install
+ls -la /opt/install
+find /opt/install
+<span style="color: #5317ac;">exit</span>
+
+<span style="color: #505050;"># </span><span style="color: #505050;">create dir for distributions as wls user</span>
+ssh  centos8_wls
+date; whoami; hostname
+mkdir -p /opt/install/dist
+<span style="color: #5317ac;">exit</span>
+
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Copy distributions (from workstations)</span>
+whoami; date; hostname
+<span style="color: #8f0075;">cd</span> /Users/aupeksha/LocalProjects/dist/osb
+ls -la
+rsync -aP  fmw_12.2.1.4.0_infrastructure_Disk1_1of1.zip <span style="color: #2544bb;">\</span>
+           p18143322_1800_Linux-x86-64.zip <span style="color: #2544bb;">\</span>
+           p30188261_122140_Linux-x86-64.zip <span style="color: #2544bb;">\</span>
+           p30188305_122140_Generic.zip       centos8_wls:/opt/install/dist
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Check distributions as user wls</span>
+ssh centos8_wls <span style="color: #2544bb;">"ls -la  /opt/install/dist"</span>
+</pre>
+</div>
+
+<p>
+I also copy the project files to the VM with rsync. In this way I can edit the file on the workstation and update changed files.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 12: </span>Copying project files using rsync.</label><pre class="src src-bash"><span style="color: #8f0075;">cd</span> /Users/aupeksha/LocalProjects/live-scripting_osb/
+<span style="color: #505050;">## </span><span style="color: #505050;">Copy or Update directory</span>
+rsync -aP  live-scripting_fmw  centos8_wls:/home/wls/
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Check distributions as user wls</span>
+ssh centos8_wls <span style="color: #2544bb;">"ls -la  /home/wls/live-scripting_fmw"</span>
+ssh centos8_wls <span style="color: #2544bb;">"find  /home/wls/live-scripting_fmw"</span>
+<span style="color: #505050;">##</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The project files and software distributions are now available on the target machine under the user wls.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfd9ec5b" class="outline-2">
+<h2 id="orgfd9ec5b"><span class="section-number-2">5.</span> Installation für FMW</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgc7ce704" class="outline-3">
+<h3 id="orgc7ce704"><span class="section-number-3">5.1.</span> Templates</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+I want to use template mechanism to replace variables in configuration files.
+There is discussion on stackoverflow that compares different approaches. <a href="https://stackoverflow.com/questions/2914220/bash-templating-how-to-build-configuration-files-from-templates-with-bash/11050943#11050943">Bash Templating: How to build configuration files from templates with Bash? - Stack Overflow</a>
+I will use the templating approach using <i>substenv</i>. I will define some environment variables in the file <i>setEnv_osb.sh</i>, which will be sourced to the shell environment. Configuration and script files can now contain shell variables that will be replaced during the installation.
+Thus I can support different stages and environments with one set of script and configuration files.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgf0047e3" class="outline-3">
+<h3 id="orgf0047e3"><span class="section-number-3">5.2.</span> Java Installation</h3>
+<div class="outline-text-3" id="text-5-2">
+<p>
+Java is unpacked (unzip) to a temporary directory and subsequently installed to the target Java directory using tar. 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">Install Java as user wls</span>
+ssh  centos8_wls
+date; hostname; <span style="color: #8f0075;">pwd</span>;  whoami
+
+<span style="color: #505050;"># </span><span style="color: #505050;">set project environment</span>
+<span style="color: #8f0075;">cd</span> ~/live-scripting_fmw; . ./setEnv_osb.sh
+
+<span style="color: #505050;">## </span><span style="color: #505050;">unzip to temporary directory</span>
+mkdir -p $<span style="color: #00538b;">JAVA_TEMP_DIR</span>
+unzip $<span style="color: #00538b;">DIST_JAVA</span>  -d $<span style="color: #00538b;">JAVA_TEMP_DIR</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">untar jav</span>
+mkdir -p $<span style="color: #00538b;">JAVA_DIR</span>
+ls ${<span style="color: #00538b;">JAVA_TEMP_DIR</span>}/jdk*.tar.gz
+tar zxvf ${<span style="color: #00538b;">JAVA_TEMP_DIR</span>}/jdk*.tar.gz -C $<span style="color: #00538b;">JAVA_DIR</span>
+
+ls $<span style="color: #00538b;">JAVA_DIR</span>
+<span style="color: #8f0075;">echo</span> $<span style="color: #00538b;">JAVA_HOME</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">check java</span>
+$<span style="color: #00538b;">JAVA_HOME</span>/bin/java -version  <span style="color: #505050;"># </span><span style="color: #505050;">java(TM) SE Runtime Environment (build 1.8.0_311-b25)</span>
+$<span style="color: #00538b;">JAVA_HOME</span>/bin/jar -version
+
+<span style="color: #505050;">## </span><span style="color: #505050;">clean up</span>
+rm -rf $<span style="color: #00538b;">JAVA_TEMP_DIR</span>
+ls $<span style="color: #00538b;">JAVA_TEMP_DIR</span>
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">centos_wls</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> Java is installed into a dedicated directory and can be called after setting the JAVA_HOME variable. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf0b57a1" class="outline-3">
+<h3 id="orgf0b57a1"><span class="section-number-3">5.3.</span> FWM Installation</h3>
+<div class="outline-text-3" id="text-5-3">
+<p>
+Now I will install the <i>Fusion Middleware</i> binaries on the target machine. A response file will be prepared using the template approach.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">FWM Installation using wls user</span>
+ssh  centos8_wls
+date; hostname; <span style="color: #8f0075;">pwd</span>;  whoami
+
+<span style="color: #505050;"># </span><span style="color: #505050;">set project environment</span>
+<span style="color: #8f0075;">cd</span> ~/live-scripting_fmw; . ./setEnv_osb.sh
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Installation of binaries</span>
+mkdir -p  ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+unzip  ${<span style="color: #00538b;">DIST_FMW</span>} -d ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+ls -la  ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Creating Response File</span>
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">PROJECT_HOME</span>
+
+envsubst &lt; fmw.rsp.template &gt; fmw.rsp
+cat fmw.rsp
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Creating inventory log file</span>
+cat &lt;&lt; EOF &gt; ${<span style="color: #00538b;">INV_PTR_LOC</span>}
+<span style="color: #2544bb;">inventory_loc=/home/wls/oraInventory</span>
+<span style="color: #2544bb;">inst_group=wls</span>
+<span style="color: #2544bb;">EOF</span>
+
+cat ${<span style="color: #00538b;">INV_PTR_LOC</span>}
+ls -la
+<span style="color: #505050;"># </span><span style="color: #505050;">Checking prerequisites</span>
+ls ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}/*.jar
+${<span style="color: #00538b;">JAVA_HOME</span>}/bin/java -Djava.io.tmpdir=${<span style="color: #00538b;">TEMP_DIR_FMW</span>} -jar ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}/*.jar <span style="color: #2544bb;">\</span>
+                -responseFile ${<span style="color: #00538b;">PROJECT_HOME</span>}/fmw.rsp <span style="color: #2544bb;">\</span>
+                -invPtrLoc ${<span style="color: #00538b;">INV_PTR_LOC</span>} <span style="color: #2544bb;">\</span>
+                -silent <span style="color: #2544bb;">\</span>
+                -executeSysPrereqs
+
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Installing FMW</span>
+${<span style="color: #00538b;">JAVA_HOME</span>}/bin/java -Djava.io.tmpdir=${<span style="color: #00538b;">TEMP_DIR_FMW</span>} -jar ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}/*.jar <span style="color: #2544bb;">\</span>
+                -responseFile ${<span style="color: #00538b;">PROJECT_HOME</span>}/fmw.rsp <span style="color: #2544bb;">\</span>
+                -invPtrLoc ${<span style="color: #00538b;">INV_PTR_LOC</span>} <span style="color: #2544bb;">\</span>
+                -silent <span style="color: #2544bb;">\</span>
+                -logLevel finest <span style="color: #2544bb;">\</span>
+                -debug <span style="color: #2544bb;">\</span>
+                -printdiskusage <span style="color: #2544bb;">\</span>
+                -printmemory <span style="color: #2544bb;">\</span>
+                -printtime
+
+<span style="color: #505050;"># </span><span style="color: #505050;">clean up</span>
+rm -rf  ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;"># </span><span style="color: #505050;">centos_wls</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The FMW Binaries are now installed.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga85c53d" class="outline-3">
+<h3 id="orga85c53d"><span class="section-number-3">5.4.</span> OSB Installation</h3>
+<div class="outline-text-3" id="text-5-4">
+<p>
+I now install the binaries for the OSB.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">FWM Installation using wls user</span>
+ssh  centos8_wls
+date; hostname; <span style="color: #8f0075;">pwd</span>;  whoami
+
+<span style="color: #505050;"># </span><span style="color: #505050;">set project environment</span>
+<span style="color: #8f0075;">cd</span> ~/live-scripting_fmw; . ./setEnv_osb.sh
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Installation of binaries</span>
+mkdir -p  ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+unzip  ${<span style="color: #00538b;">DIST_OSB</span>} -d ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+ls -la  ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Creating Response File</span>
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">PROJECT_HOME</span>
+envsubst &lt; osb.rsp.template &gt; osb.rsp
+cat osb.rsp
+
+
+ls -la
+<span style="color: #505050;"># </span><span style="color: #505050;">Checking prerequisites</span>
+ls ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}/*.jar
+${<span style="color: #00538b;">JAVA_HOME</span>}/bin/java -Djava.io.tmpdir=${<span style="color: #00538b;">TEMP_DIR_FMW</span>} -jar ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}/*.jar <span style="color: #2544bb;">\</span>
+                -responseFile ${<span style="color: #00538b;">PROJECT_HOME</span>}/osb.rsp <span style="color: #2544bb;">\</span>
+                -invPtrLoc $<span style="color: #00538b;">INV_PTR_LOC</span> <span style="color: #2544bb;">\</span>
+                -silent <span style="color: #2544bb;">\</span>
+                -executeSysPrereqs
+
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Installing OSB</span>
+${<span style="color: #00538b;">JAVA_HOME</span>}/bin/java -Djava.io.tmpdir=${<span style="color: #00538b;">TEMP_DIR_FMW</span>} -jar ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}/*.jar <span style="color: #2544bb;">\</span>
+                -responseFile ${<span style="color: #00538b;">PROJECT_HOME</span>}/osb.rsp <span style="color: #2544bb;">\</span>
+                -invPtrLoc $<span style="color: #00538b;">INV_PTR_LOC</span> <span style="color: #2544bb;">\</span>
+                -silent <span style="color: #2544bb;">\</span>
+                -logLevel finest <span style="color: #2544bb;">\</span>
+                -debug <span style="color: #2544bb;">\</span>
+                -printdiskusage <span style="color: #2544bb;">\</span>
+                -printmemory <span style="color: #2544bb;">\</span>
+                -printtime
+
+<span style="color: #505050;"># </span><span style="color: #505050;">clean up</span>
+rm -rf  ${<span style="color: #00538b;">TEMP_DIR_FMW</span>}
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">centos_wls</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The OSB binaries are installed on the target machine. It is ready for domain creation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7a223e7" class="outline-3">
+<h3 id="org7a223e7"><span class="section-number-3">5.5.</span> Cleaning up</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+After installing the binaries, I delete the installation medias, to save space on the VM. Otherwise it will unecessarily waste disk space in the snapshots.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 13: </span>Cleaning up the VM</label><pre class="src src-bash">whoami; hostname
+<span style="color: #505050;">## </span><span style="color: #505050;">Login to VM as parallels users</span>
+ssh centos8_parallels
+<span style="color: #8f0075;">cd</span> /opt/install/dist
+ls -la
+<span style="color: #505050;">## </span><span style="color: #505050;">delete installation media for middleware</span>
+sudo rm p*
+sudo rm fmw*
+<span style="color: #505050;">## </span><span style="color: #505050;">delel database installation media</span>
+<span style="color: #8f0075;">cd</span> /opt/install/db
+sudo rm oracle*
+ls -ls
+<span style="color: #5317ac;">exit</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The installation medias for the database and for java, fmw and osb are now removed from the vm, thus saving disk space in snapshots.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgec12159" class="outline-2">
+<h2 id="orgec12159"><span class="section-number-2">6.</span> Creating the OSB Domain</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+There are several steps necessary to create the OSB domain.
+In a first step I will create the required database schemes using the RCU tool.
+The domain is will be created without the GUI installer. Instead WLST is used together with a python script, which runs the installation.
+The python script will be customized, using the template approach.
+</p>
+</div>
+
+<div id="outline-container-org500ae10" class="outline-3">
+<h3 id="org500ae10"><span class="section-number-3">6.1.</span> Checking the database</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Before running the RCU tool I need to check that the database is started and listening. 
+</p>
+</div>
+<div id="outline-container-org305e3de" class="outline-4">
+<h4 id="org305e3de"><span class="section-number-4">6.1.1.</span> Starting and stopping the database</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+This is done using the init.d script.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 14: </span>Starting and checking the database</label><pre class="src src-bash">ssh centos8_parallels
+<span style="color: #505050;"># </span><span style="color: #505050;">Zeige die Usage Message</span>
+sudo  /etc/init.d/oracle-xe-21c
+<span style="color: #505050;"># </span><span style="color: #505050;">Datenbank starten</span>
+sudo  /etc/init.d/oracle-xe-21c start
+sudo  /etc/init.d/oracle-xe-21c restart
+sudo  /etc/init.d/oracle-xe-21c status
+</pre>
+</div>
+
+<p>
+Ok, the database is running. I know check the TNS listener.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org369ecb3" class="outline-4">
+<h4 id="org369ecb3"><span class="section-number-4">6.1.2.</span> Verifying the database listener</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+I change to the user oracle and set the environment for checking the listener with <i>lsnrctl</i>
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">User must be oracle</span>
+sudo su - oracle
+<span style="color: #505050;">### </span><span style="color: #505050;">Setting Envrionment and checking listner</span>
+<span style="color: #8f0075;">export</span> <span style="color: #00538b;">ORACLE_SID</span>=XE
+<span style="color: #8f0075;">export</span> <span style="color: #00538b;">ORAENV_ASK</span>=NO
+. /opt/oracle/product/21c/dbhomeXE/bin/oraenv
+<span style="color: #8f0075;">set</span> <span style="color: #00538b;">ORACLE_HOME</span> = [] ? /opt/oracle/product/21c/dbhomeXE
+<span style="color: #8f0075;">echo</span> $<span style="color: #00538b;">ORACLE_HOME</span>
+ls -la $<span style="color: #00538b;">ORACLE_HOME</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">check listener</span>
+lsnrctl status
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">oracle</span>
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">centos8_paralles</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The database and the listner are started.  
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org753f0a0" class="outline-3">
+<h3 id="org753f0a0"><span class="section-number-3">6.2.</span> Running the RCU tool</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+I will use the RCU-Tool to create the database schemes, which is a prerequisite for OSB domain creation.
+I use the template approach to customize the response file. 
+The execution of the RCU-Tool takes several minutes.
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 15: </span>Creating database schemes with the RCU tool.</label><pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">RCU execution using wls user</span>
+ssh  centos8_wls
+date; hostname; <span style="color: #8f0075;">pwd</span>;  whoami
+
+<span style="color: #505050;"># </span><span style="color: #505050;">set project environment</span>
+<span style="color: #8f0075;">cd</span> ~/live-scripting_fmw; . ./setEnv_osb.sh
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Creating Response File</span>
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">PROJECT_HOME</span>
+ls -la
+envsubst &lt; rcu_osb.rsp.template &gt; rcu_osb.rsp
+cat rcu_osb.rsp
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Checking prerequisites. It needs:</span>
+<span style="color: #505050;"># </span><span style="color: #505050;">- database password for user sys</span>
+<span style="color: #505050;"># </span><span style="color: #505050;">- schema pasword</span>
+${<span style="color: #00538b;">FMW_HOME</span>}/oracle_common/bin/rcu  -silent -responseFile ${<span style="color: #00538b;">PROJECT_HOME</span>}/rcu_osb.rsp  -validate
+ham2burg
+ham2burg
+<span style="color: #505050;">## </span><span style="color: #505050;">Success=status 0</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Running RCU</span>
+${<span style="color: #00538b;">FMW_HOME</span>}/oracle_common/bin/rcu  -silent -responseFile ${<span style="color: #00538b;">PROJECT_HOME</span>}/rcu_osb.rsp
+ham2burg
+ham2burg
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;">#</span><span style="color: #505050;">centos_wls</span>
+
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The database schemes for the OSB domain are created. The database is ready for osb domain creation. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd6dd231" class="outline-3">
+<h3 id="orgd6dd231"><span class="section-number-3">6.3.</span> OSB domain creation</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+I will now create the domain using WLST and the python script <i>createOSBDomain.py</i>. The python script originates from the OSB documentation and was modified to accept customization via the template approach.
+</p>
+
+
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #505050;">### </span><span style="color: #505050;">Creating domain using wls user</span>
+ssh  centos8_wls
+date; hostname; <span style="color: #8f0075;">pwd</span>;  whoami
+
+<span style="color: #505050;"># </span><span style="color: #505050;">set project environment</span>
+<span style="color: #8f0075;">cd</span> ~/live-scripting_fmw; . ./setEnv_osb.sh
+
+<span style="color: #505050;"># </span><span style="color: #505050;">Creating WLST File</span>
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">PROJECT_HOME</span>
+ls -la
+envsubst &lt; Template_createOSBDomain.py &gt; createOSBDomain.py
+cat createOSBDomain.py
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Create the domain</span>
+mkdir -p $<span style="color: #00538b;">DOMAINS</span>
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">PROJECT_HOME</span>
+ls -la
+
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">FMW_HOME</span>/oracle_common/common/bin/
+./wlst.sh $<span style="color: #00538b;">PROJECT_HOME</span>/createOSBDomain.py -oh <span style="color: #2544bb;">"$FMW_HOME"</span> -jh <span style="color: #2544bb;">"$JAVA_HOME"</span> -parent <span style="color: #2544bb;">"$DOMAINS"</span> -rcuDb <span style="color: #2544bb;">"${CONNECT_STRING2}"</span>
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;"># </span><span style="color: #505050;">centos_wls</span>
+</pre>
+</div>
+
+<p>
+<b>Result:</b> The osb domain is created and can be started in the next step.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org394a0bd" class="outline-3">
+<h3 id="org394a0bd"><span class="section-number-3">6.4.</span> Starting the OSB domain</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+I will use the start scripts from the OSB installation to start the Nodemanager and the Adminserver. As a prerequisite I create boot.properiies files which allow for password-less script-based domain start from the command line.
+</p>
+
+<p>
+I also introduce a small self-developed control script to start and stop the domain and to produce a log file report, based on a perl script.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ssh  centos8_wls
+date; hostname; <span style="color: #8f0075;">pwd</span>;  whoami
+
+<span style="color: #505050;"># </span><span style="color: #505050;">set project environment</span>
+<span style="color: #8f0075;">cd</span> ~/live-scripting_fmw; . ./setEnv_osb.sh
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">DOMAIN_HOME</span>; ls -la
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Creating  boot.properties</span>
+mkdir -p  $<span style="color: #00538b;">DOMAIN_HOME</span>/servers/AdminServer/security
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">DOMAIN_HOME</span>/servers/AdminServer/security
+ls -la; <span style="color: #8f0075;">pwd</span>
+<span style="color: #8f0075;">echo</span> <span style="color: #00538b;">username</span>=${<span style="color: #00538b;">DOMAIN_USER</span>} &gt; boot.properties
+<span style="color: #8f0075;">echo</span> <span style="color: #00538b;">password</span>=${<span style="color: #00538b;">DOMAIN_PASSWORD</span>} &gt;&gt; boot.properties
+cat  boot.properties
+<span style="color: #505050;">#</span><span style="color: #505050;">rm  boot.properties</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Start the Nodemanager</span>
+<span style="color: #8f0075;">cd</span> $<span style="color: #00538b;">DOMAIN_HOME</span>
+<span style="color: #505050;">#</span><span style="color: #505050;">./bin/startNodeManager.sh</span>
+nohup ./bin/startNodeManager.sh  &gt; NodeManager.out 2&gt;&amp;1 &amp;
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Start AdminServer (nohup)</span>
+nohup ./startWebLogic.sh &gt; AdminServer.out 2&gt;&amp;1 &amp;
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Check satus</span>
+tail -f AdminServer.out
+cat AdminServer.out | grep -e <span style="color: #2544bb;">"Server state changed to"</span>
+cat AdminServer.out | grep -e <span style="color: #2544bb;">"Server state changed to RUNNING."</span>
+cat servers/AdminServer/logs/AdminServer.log | grep <span style="color: #2544bb;">"Server state changed to"</span>
+cat servers/AdminServer/logs/AdminServer.log | grep <span style="color: #2544bb;">"Server state changed to RUNNING"</span>
+
+<span style="color: #505050;">## </span><span style="color: #505050;">Wait for running state</span>
+<span style="color: #5317ac;">while</span> (( $(cat AdminServer.out | grep <span style="color: #2544bb;">"Server state changed to RUNNING."</span>| wc -m ) &lt; 1 )) 
+<span style="color: #5317ac;">do</span>
+  sleep 5
+  cat AdminServer.out | grep <span style="color: #2544bb;">"Server state changed to "</span>
+<span style="color: #5317ac;">done</span> 
+
+<span style="color: #505050;">## </span><span style="color: #505050;">prevent perl warnings</span>
+<span style="color: #8f0075;">export</span> <span style="color: #00538b;">LC_ALL</span>=C
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Check for Running Server and NodeManager</span>
+ps -aelf | perl -ne <span style="color: #2544bb;">'/^([^\s]+)\s+([^\s]+)\s+([^\s]+)\s+([^\s]+).*([w]eblogic.NodeManager)/g &amp;&amp; print "$3 $4 $5\n" or/^([^\s]+)\s+([^\s]+)\s+([^\s]+)\s+([^\s]+).*([w]eblogic.Name=[^\s]+)/g &amp;&amp; print "$3 $4 $5\n"'</span>
+
+<span style="color: #505050;">### </span><span style="color: #505050;">Use the control script</span>
+<span style="color: #8f0075;">cd</span> /home/wls/live-scripting_fmw/bin
+ls -la
+
+<span style="color: #505050;">## </span><span style="color: #505050;">use control skript to control the domain</span>
+./control.sh help
+./control.sh status
+./control.sh log_report -u
+./control.sh log_report -T
+./control.sh log_report -rwaS
+./control.sh kill
+
+./control.sh startNodemanager
+./control.sh startAdmin
+
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;"># </span><span style="color: #505050;">centos_wls</span>
+
+
+<span style="color: #505050;">### </span><span style="color: #505050;">create tunnel for access via web browser.</span>
+whoami; hostname
+ssh -L 7001:localhost:7001 centos8_wls
+<span style="color: #5317ac;">exit</span> <span style="color: #505050;"># </span><span style="color: #505050;">centos_wls</span>
+
+</pre>
+</div>
+
+<p>
+The OSB is started and access to the web based administration tools is available. 
+</p>
+
+<p>
+<b>Test URLs:</b>
+</p>
+<ul class="org-ul">
+<li><a href="http://localhost:7001/console">http://localhost:7001/console</a>  (wls/ham2burg)</li>
+<li><a href="http://localhost:7001/em">http://localhost:7001/em</a></li>
+<li><a href="http://localhost:7001/servicebus">http://localhost:7001/servicebus</a></li>
+</ul>
+
+<p>
+<b>Result:</b> The OSB domain is created and started. I also started SSH tunnel that allow to call the OSB Web-Tools without direct network connection.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7e342d8" class="outline-3">
+<h3 id="org7e342d8"><span class="section-number-3">6.5.</span> Snapshot03</h3>
+<div class="outline-text-3" id="text-6-5">
+<p>
+I take a snapshot of the CentOS 8 VM with the following contents:
+</p>
+
+<blockquote>
+<p>
+<b>Snapshot03:</b>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-14 Sat 12:34]</span></span>
+</p>
+<ul class="org-ul">
+<li class="on"><code>[X]</code> Creating unix user wls</li>
+<li class="on"><code>[X]</code> Setting up ssh trust for wls</li>
+<li class="on"><code>[X]</code> Java is installed</li>
+<li class="on"><code>[X]</code> FMW is installed</li>
+<li class="on"><code>[X]</code> OSB is installed</li>
+<li class="on"><code>[X]</code> RCU is executed</li>
+<li class="on"><code>[X]</code> OSB is created</li>
+<li class="on"><code>[X]</code> OSB domain has been started and tested.</li>
+<li class="on"><code>[X]</code> Installation media for databases and middleware are deleted.</li>
+<li class="on"><code>[X]</code> Snapshot03 is created.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org88b4c2f" class="outline-3">
+<h3 id="org88b4c2f"><span class="section-number-3">6.6.</span> Conclusion</h3>
+<div class="outline-text-3" id="text-6-6">
+<p>
+The necessary software distributions for the OSB, namely Java, FMW and OSB are installed on the CentOS VM. This was done with a dedicated installation user: <i>wls</i>. All steps to create a domain where executed, including RCU and domain configuration and creation with a Python script.
+The OSB domain was started and testes. Access to the web based administration tools was established using an SSH tunnel.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org90d73ab" class="outline-2">
+<h2 id="org90d73ab"><span class="section-number-2">7.</span> Appendix</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+<span class="timestamp-wrapper"><span class="timestamp">[2023-10-12 Thu 12:06] </span></span> This appendix contains additional material that was used during setup, but is not relevant for the final solution. This includes further analysis, troubleshooting, and failed attempts. It only serves reference purposes.
+</p>
+</div>
+<div id="outline-container-org9def79a" class="outline-3">
+<h3 id="org9def79a"><span class="section-number-3">7.1.</span> Problem: Oracle Express Database needs RHEL 8.</h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+I cannot install the database. Error in preinstallation:
+</p>
+
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 16: </span>Error Message while trying to install Oracle XE Database</label><pre class="src src-bash">[root@localhost db]# yum -y localinstall --nobest oracle-database-preinstall-21c-1.0-1.el8.x86_64.rpm
+Last metadata expiration check: 0:54:56 ago on Wed 11 Oct 2023 01:08:26 AM CEST.
+Error:
+ Problem: conflicting requests
+  - nothing provides compat-openssl10 needed by oracle-database-preinstall-21c-1.0-1.el8.x86_64 from @commandline
+</pre>
+</div>
+
+<p>
+<b>Attempt:</b> Installation of <i>compat-openssl11</i>. The installation works but it still breaks the pre-install.
+<b>Conclusion:</b> Oracle XE ist not compatible with RHEL9. I will install CentOS 8
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Andreas Wittmann</p>
+<p class="date">Created: 2023-10-20 Fri 10:10</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
