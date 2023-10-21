@@ -1024,8 +1024,76 @@ git add aw-org-html-themes
 git status
 git commit -m "initial project commit"
 
+
+## Creating a key pair for GitHub
+ssh-keygen -t ed25519 -C "your_email@example.com"
+/Users/aupeksha/.ssh/id_github
+
+
+ls -la /Users/aupeksha/.ssh/
+
+
 ## Uploading to GitHub
+
+gh auth login
+
+SSH
+github
+GitHub CLI
+web browser
+
+
+## Ok 
+
+# Create a new Repo and upload a the public key to id_github.pub to the git account
+gh repo list
+gh repo create
+Push an existing
+.
+live-scripting_osb
+Project to demonstrate the insllation of OSB with the live-scripting approach.
+Public
+Y
+origin
+Y
+yes
+
+
+gh auth logout
+## Push project to github
+git branch -M main
+git remote add origin https://github.com/andreaswittmann/live-scripting_osb.git
+git push -u origin main
+git pull origin 
+
+git status
+
+### Change project level readme file
+cd ~/LocalProjects/live-scripting_osb
+mkdir .github
+cd .github
+ln -s ../live-scripting_osb.org README.org
+ls -la
+# Use Magit to commit and push
+
+
 #+end_src
+
+
+*** Problem: Error during git push
+
+#+begin_src bash
+# Listing: Error Message
+bash-3.2$ git remote add origin git@github.com:andreaswittmann/live-scripting_osb.git
+error: remote origin already exists.
+bash-3.2$ git push -u origin main
+git@github.com: Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+#+end_src
+
 
 * Appendix
 [2023-10-12 Thu 12:06] This appendix contains additional material that was used during setup, but is not relevant for the final solution. This includes further analysis, troubleshooting, and failed attempts. It only serves reference purposes.
