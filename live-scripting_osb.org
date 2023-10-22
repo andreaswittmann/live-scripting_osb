@@ -17,8 +17,10 @@ This project demonstrates the installation of Oracle FMW and OSB using the Live-
 #+END_abstract
 
 
-| Documentation (PDF)  | [[file:live-scripting_osb.pdf][live-scripting_osb.pdf]]    |
-| Documentation (HTML) | [[file+sys:live-scripting_osb.html]] |
+
+| Documentation (PDF)  | [[file:live-scripting_osb.pdf][live-scripting_osb.pdf]]                                |
+| Documentation (HTML) | [[file+sys:live-scripting_osb.html]]                      |
+| Project on GitHub    | https://github.com/andreaswittmann/live-scripting_osb |
 
 #+TOC: headlines 4
 
@@ -990,6 +992,7 @@ As a third option, a pdf file will be created from the  orgmode file, using the 
 
 ** Project on GitHub
 GitHub offers a command line interface which can be used to upload and commit the files of the project.
+I will use the GitHub CLI to create a new project and to upload a public key to the repository.
 
 #+begin_src bash
 # Listing: Initializing git project and uploading it to GitHub
@@ -1074,45 +1077,73 @@ mkdir .github
 cd .github
 ln -s ../live-scripting_osb.org README.org
 ls -la
+
+### Change project level readme file 
+cd ~/LocalProjects/live-scripting_osb
+rm -rf .github
+ln -s ./live-scripting_osb.org ./README.org
+ls -la
+
+
+
 # Use Magit to commit and push
-
-
 #+end_src
 
 
-*** Problem: Error during git push
+*Result:* The project /live-scripting_osb/ is now under git control. A new private-public key pair was created and the public key was uploaded to the GitHub account. The project is pushed to GitHub. Magit was used for further commits. 
+
+
+** Project documentation on the web
+I want to generate the project documentation and publish it on my web server at anwi.gmbh.
+
+
 
 #+begin_src bash
-# Listing: Error Message
-bash-3.2$ git remote add origin git@github.com:andreaswittmann/live-scripting_osb.git
-error: remote origin already exists.
-bash-3.2$ git push -u origin main
-git@github.com: Permission denied (publickey).
-fatal: Could not read from remote repository.
+# Listing: Copying the static Web-Site to the web server
+# Create root dir for static site
+ssh ubuntu_wp_parallels
+whoami; hostname
+sudo su www-data
+mkdir -p  /site/wordpress/labs/live-scripting_osb
+cd  /site/wordpress/labs/live-scripting_osb
+ls -la  /site/wordpress/labs/live-scripting_osb
+ls -al
 
-Please make sure you have the correct access rights
-and the repository exists.
+### Allow user paralels to copy files
+chmod 777 /site/wordpress/labs/
+chmod 777 /site/wordpress/labs/live-scripting_osb
+ls -la
+exit
+exit
+
+## copy files to web root
+cd /Users/aupeksha/LocalProjects/live-scripting_osb
+ls -la
+rsync -avP live-scripting_osb.html ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+rsync -avP live-scripting_osb.pdf ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+rsync -avP aw-org-html-themes ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+rsync -avP data ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+rsync -avP docs ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+rsync -avP styles ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+
+
+### Change owner of files on web serve
+ssh ubuntu_wp_parallels
+whoami; hostname
+cd  /site/wordpress/labs/live-scripting_osb
+sudo chown www-data:www-data -R .
+ls -la
+exit
+
+
+
 #+end_src
 
 
-* Appendix
-[2023-10-12 Thu 12:06] This appendix contains additional material that was used during setup, but is not relevant for the final solution. This includes further analysis, troubleshooting, and failed attempts. It only serves reference purposes.
-** Problem: Oracle Express Database needs RHEL 8.
-I cannot install the database. Error in preinstallation:
-
-#+begin_src bash
-# Listing:  Error Message while trying to install Oracle XE Database
-[root@localhost db]# yum -y localinstall --nobest oracle-database-preinstall-21c-1.0-1.el8.x86_64.rpm
-Last metadata expiration check: 0:54:56 ago on Wed 11 Oct 2023 01:08:26 AM CEST.
-Error:
- Problem: conflicting requests
-  - nothing provides compat-openssl10 needed by oracle-database-preinstall-21c-1.0-1.el8.x86_64 from @commandline
-#+end_src
-
-*Attempt:* Installation of /compat-openssl11/. The installation works but it still breaks the pre-install.
-*Conclusion:* Oracle XE ist not compatible with RHEL9. I will install CentOS 8
+The 
+https://ubuntu2204_wordpress/labs/live-scripting_osb/live-scripting_osb.html
 
 
-
+* Summary and Outlook
 
 
