@@ -18,9 +18,9 @@ This project demonstrates the installation of Oracle FMW and OSB using the Live-
 
 
 
-| Documentation (PDF)  | [[file:live-scripting_osb.pdf][live-scripting_osb.pdf]]                                |
-| Documentation (HTML) | [[file+sys:live-scripting_osb.html]]                      |
-| Project on GitHub    | https://github.com/andreaswittmann/live-scripting_osb |
+| Documentation (PDF)  | [[file:live-scripting_osb.pdf][https://anwi.gmbh/labs/live-scripting_osb/live-scripting_osb.pdf]]                                                                                          |
+| Documentation (HTML) | https://anwi.gmbh/labs/live-scripting_osb/live-scripting_osb.html                                                   |
+| Project on GitHub    | https://github.com/andreaswittmann/live-scripting_osb                                                           |
 
 #+TOC: headlines 4
 
@@ -1119,12 +1119,27 @@ exit
 ## copy files to web root
 cd /Users/aupeksha/LocalProjects/live-scripting_osb
 ls -la
-rsync -avP live-scripting_osb.html ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
-rsync -avP live-scripting_osb.pdf ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
-rsync -avP aw-org-html-themes ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
-rsync -avP data ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
-rsync -avP docs ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
-rsync -avP styles ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+## create exclude file for rsync
+cat << 'EOF' > rsync_exclude.txt
+.DS_*
+*.bkp
+.git
+.gitignore
+.idea
+_minted*
+README.org
+live-scripting_fmw
+*.tex
+rsync_exclude.txt
+.#*
+EOF
+cat rsync_exclude.txt
+
+## transfer files or update web-server files
+cd /Users/aupeksha/LocalProjects/live-scripting_osb
+rsync --dry-run -avP --exclude-from='rsync_exclude.txt' ./ ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+rsync -avP --exclude-from='rsync_exclude.txt' ./ ubuntu_wp_parallels:/site/wordpress/labs/live-scripting_osb/
+
 
 
 ### Change owner of files on web serve
