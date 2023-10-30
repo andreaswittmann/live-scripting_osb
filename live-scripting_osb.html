@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-10-22 Sun 13:12 -->
+<!-- 2023-10-28 Sat 18:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Installation of Oracle OSB using Live-Scripting medthod</title>
+<title>Installation of Oracle OSB using the live-scripting method</title>
 <meta name="author" content="Andreas Wittmann" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -203,8 +203,8 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Installation of Oracle OSB using Live-Scripting medthod</h1>
-<div class="abstract" id="orga7a6a82">
+<h1 class="title">Installation of Oracle OSB using the live-scripting method</h1>
+<div class="abstract" id="org41c9df7">
 <p>
 This project demonstrates the installation of Oracle FMW and OSB using the Live-Scripting method.
 </p>
@@ -239,90 +239,98 @@ This project demonstrates the installation of Oracle FMW and OSB using the Live-
 </tbody>
 </table>
 
+<div class="tip" id="org64b87fa">
+<p>
+If you need help for running this installation or if you need additional assistance with your OSB environment, please take a look at my professional offering at: <a href="https://anwi.gmbh/?page_id=844&amp;lang=en">https://anwi.gmbh/?page_id=844&amp;lang=en</a>
+</p>
+
+</div>
+
+
 <div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8512740">1. Introduction</a>
+<li><a href="#org057ed50">1. Introduction</a>
 <ul>
-<li><a href="#org3480508">1.1. Motivation</a></li>
-<li><a href="#orgb27bcce">1.2. Architecture</a></li>
+<li><a href="#org9ffe8f6">1.1. Motivation</a></li>
+<li><a href="#org3da7397">1.2. Architecture</a></li>
 </ul>
 </li>
-<li><a href="#org2f1f8e3">2. Linux Installation</a>
+<li><a href="#org3bff051">2. Linux Installation</a>
 <ul>
-<li><a href="#org1e34966">2.1. Download and Check Sums</a></li>
-<li><a href="#org6cc7e3b">2.2. Installing the VM</a></li>
-<li><a href="#org2c09ee2">2.3. Snapshot01</a></li>
-<li><a href="#org0cf978d">2.4. Conclusion</a></li>
+<li><a href="#org1f1db46">2.1. Download and Check Sums</a></li>
+<li><a href="#org0e5aed5">2.2. Installing the VM</a></li>
+<li><a href="#orgf5831ea">2.3. Snapshot01</a></li>
+<li><a href="#org9868628">2.4. Conclusion</a></li>
 </ul>
 </li>
-<li><a href="#org96e2746">3. Database Setup</a>
+<li><a href="#org4be5417">3. Database Setup</a>
 <ul>
-<li><a href="#orgbeff1f6">3.1. Creating SSH Trust for the user <i>parallels</i></a>
+<li><a href="#org85b2384">3.1. Creating SSH Trust for the user <i>parallels</i></a>
 <ul>
-<li><a href="#org4eb737a">3.1.1. <span class="done DONE">DONE</span> Problem: SSH-Connection with public keys does not work.</a></li>
+<li><a href="#org3e760d2">3.1.1. <span class="done DONE">DONE</span> Problem: SSH-Connection with public keys does not work.</a></li>
 </ul>
 </li>
-<li><a href="#org19b5306">3.2. Database Installation</a></li>
-<li><a href="#org3424d45">3.3. Autostart Configuration</a></li>
-<li><a href="#org7523135">3.4. Database Operation</a></li>
-<li><a href="#org17e8a84">3.5. Snapshot02</a></li>
-<li><a href="#orga209fec">3.6. Conclusion</a></li>
+<li><a href="#org8713e8b">3.2. Database Installation</a></li>
+<li><a href="#org8fe2240">3.3. Autostart Configuration</a></li>
+<li><a href="#org7714be8">3.4. Database Operation</a></li>
+<li><a href="#orgc90aa46">3.5. Snapshot02</a></li>
+<li><a href="#org7d5ac3b">3.6. Conclusion</a></li>
 </ul>
 </li>
-<li><a href="#org9adf031">4. Preparing the FMW Installation</a>
+<li><a href="#orgd91882f">4. Preparing the FMW Installation</a>
 <ul>
-<li><a href="#orgc9d35ed">4.1. Setup of the installation user</a></li>
-<li><a href="#orgfb01897">4.2. Creating SSH Trust</a></li>
-<li><a href="#org5c1da01">4.3. Copying the Oracle Distributions</a></li>
+<li><a href="#org5c45aa5">4.1. Setup of the installation user</a></li>
+<li><a href="#org965013d">4.2. Creating SSH Trust</a></li>
+<li><a href="#org7404c32">4.3. Copying the Oracle Distributions</a></li>
 </ul>
 </li>
-<li><a href="#orgab17d7a">5. Installation für FMW</a>
+<li><a href="#orga040195">5. Installation für FMW</a>
 <ul>
-<li><a href="#orge415286">5.1. Templates</a></li>
-<li><a href="#org11339c9">5.2. Java Installation</a></li>
-<li><a href="#orgebf9a47">5.3. FWM Installation</a></li>
-<li><a href="#org4b279be">5.4. OSB Installation</a></li>
-<li><a href="#orgd06b65c">5.5. Cleaning up</a></li>
+<li><a href="#org147c2cd">5.1. Templates</a></li>
+<li><a href="#org1a3e721">5.2. Java Installation</a></li>
+<li><a href="#org2228581">5.3. FWM Installation</a></li>
+<li><a href="#org4836a2d">5.4. OSB Installation</a></li>
+<li><a href="#org8d5ba11">5.5. Cleaning up</a></li>
 </ul>
 </li>
-<li><a href="#org6f8eaf8">6. Creating the OSB Domain</a>
+<li><a href="#orga54b17d">6. Creating the OSB Domain</a>
 <ul>
-<li><a href="#orgce647c1">6.1. Checking the database</a>
+<li><a href="#org2f4c363">6.1. Checking the database</a>
 <ul>
-<li><a href="#orge71ac39">6.1.1. Starting and stopping the database</a></li>
-<li><a href="#org8946f1e">6.1.2. Verifying the database listener</a></li>
+<li><a href="#orgc3fbb07">6.1.1. Starting and stopping the database</a></li>
+<li><a href="#orgafd914d">6.1.2. Verifying the database listener</a></li>
 </ul>
 </li>
-<li><a href="#orgc8145aa">6.2. Running the RCU tool</a></li>
-<li><a href="#org9dd69e0">6.3. OSB domain creation</a></li>
-<li><a href="#org984d46a">6.4. Starting the OSB domain</a></li>
-<li><a href="#org45d1930">6.5. Snapshot03</a></li>
-<li><a href="#org1d1d8fb">6.6. Conclusion</a></li>
+<li><a href="#org50d7347">6.2. Running the RCU tool</a></li>
+<li><a href="#org73919ce">6.3. OSB domain creation</a></li>
+<li><a href="#orge014113">6.4. Starting the OSB domain</a></li>
+<li><a href="#orgd681080">6.5. Snapshot03</a></li>
+<li><a href="#org72e24d4">6.6. Conclusion</a></li>
 </ul>
 </li>
-<li><a href="#org706e62e">7. Documentation</a>
+<li><a href="#org9cd8a54">7. Documentation</a>
 <ul>
-<li><a href="#org7f5470f">7.1. Project on GitHub</a></li>
-<li><a href="#org0733707">7.2. Project documentation on the web</a></li>
+<li><a href="#org24d1aef">7.1. Project on GitHub</a></li>
+<li><a href="#org9da5313">7.2. Project documentation on the web</a></li>
 </ul>
 </li>
-<li><a href="#org15617ec">8. Summary and Outlook</a></li>
+<li><a href="#org0748392">8. Summary and Outlook</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8512740" class="outline-2">
-<h2 id="org8512740"><span class="section-number-2">1.</span> Introduction</h2>
+<div id="outline-container-org057ed50" class="outline-2">
+<h2 id="org057ed50"><span class="section-number-2">1.</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 This project demonstrates the live-scripting process, which combines command-line-work and documentation in the context of an Oracle Service Bus installation. 
 </p>
 </div>
 
-<div id="outline-container-org3480508" class="outline-3">
-<h3 id="org3480508"><span class="section-number-3">1.1.</span> Motivation</h3>
+<div id="outline-container-org9ffe8f6" class="outline-3">
+<h3 id="org9ffe8f6"><span class="section-number-3">1.1.</span> Motivation</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 Oracle Service Bus (OSB) is widely utilized, boasting a substantial installation base. Although new projects are currently rare, its complex environment prevails. Expertise is often sought after for version migrations and the integration of new solutions. 
@@ -361,14 +369,14 @@ In summary, live-scripting is a powerful methodology in the context of command-l
 </div>
 
 
-<div id="outline-container-orgb27bcce" class="outline-3">
-<h3 id="orgb27bcce"><span class="section-number-3">1.2.</span> Architecture</h3>
+<div id="outline-container-org3da7397" class="outline-3">
+<h3 id="org3da7397"><span class="section-number-3">1.2.</span> Architecture</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 The architecture of the OSB domain is simple, it consists of an admin server and two cluster nodes, all running on a single machine. The architecture diagram, however, also depicts the machines and components required to install and set up the OSB domain.
 </p>
 
-<div id="org46f52da" class="figure">
+<div id="org2e4986b" class="figure">
 <p><img src="data/Introduction/2023-10-18_11-59-54_2023-10-18_11-59-16.png" alt="2023-10-18_11-59-54_2023-10-18_11-59-16.png" />
 </p>
 </div>
@@ -407,16 +415,16 @@ The whole installation process can conceptually be broken down into six steps, w
 </div>
 
 
-<div id="outline-container-org2f1f8e3" class="outline-2">
-<h2 id="org2f1f8e3"><span class="section-number-2">2.</span> Linux Installation</h2>
+<div id="outline-container-org3bff051" class="outline-2">
+<h2 id="org3bff051"><span class="section-number-2">2.</span> Linux Installation</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 I create a new CentOS VM, using <i>Parallels Desktop</i>.
 </p>
 </div>
 
-<div id="outline-container-org1e34966" class="outline-3">
-<h3 id="org1e34966"><span class="section-number-3">2.1.</span> Download and Check Sums</h3>
+<div id="outline-container-org1f1db46" class="outline-3">
+<h3 id="org1f1db46"><span class="section-number-3">2.1.</span> Download and Check Sums</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 I use the Download Mirror. <a href="https://ftp.fau.de/centos/8-stream/isos/x86_64/">https://ftp.fau.de/centos/8-stream/isos/x86_64/</a>
@@ -438,8 +446,8 @@ shasum -a 256 CentOS-Stream-8-20231009.1-x86_64-dvd1.iso <span style="color: #8D
 </div>
 </div>
 
-<div id="outline-container-org6cc7e3b" class="outline-3">
-<h3 id="org6cc7e3b"><span class="section-number-3">2.2.</span> Installing the VM</h3>
+<div id="outline-container-org0e5aed5" class="outline-3">
+<h3 id="org0e5aed5"><span class="section-number-3">2.2.</span> Installing the VM</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 On the <i>Parallels Host</i> machine <i>Samadhi</i>, I will now install the ISO image  with the Prallels GUI Installer.
@@ -510,8 +518,8 @@ I want to allow user <i>parallels</i> to sudo without password. This can be done
 </div>
 </div>
 
-<div id="outline-container-org2c09ee2" class="outline-3">
-<h3 id="org2c09ee2"><span class="section-number-3">2.3.</span> Snapshot01</h3>
+<div id="outline-container-orgf5831ea" class="outline-3">
+<h3 id="orgf5831ea"><span class="section-number-3">2.3.</span> Snapshot01</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 I take a snapshot of the CentOS_8 VM with the following contents.
@@ -539,8 +547,8 @@ I take a snapshot of the CentOS_8 VM with the following contents.
 </div>
 </div>
 
-<div id="outline-container-org0cf978d" class="outline-3">
-<h3 id="org0cf978d"><span class="section-number-3">2.4.</span> Conclusion</h3>
+<div id="outline-container-org9868628" class="outline-3">
+<h3 id="org9868628"><span class="section-number-3">2.4.</span> Conclusion</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 The Centos_8 VM is set up. Remote login with user parallels is working. A snapshot of the VM is saved.
@@ -550,8 +558,8 @@ The Centos_8 VM is set up. Remote login with user parallels is working. A snapsh
 </div>
 
 
-<div id="outline-container-org96e2746" class="outline-2">
-<h2 id="org96e2746"><span class="section-number-2">3.</span> Database Setup</h2>
+<div id="outline-container-org4be5417" class="outline-2">
+<h2 id="org4be5417"><span class="section-number-2">3.</span> Database Setup</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 The FMW-installation requires a database for configuration data and runtime metrics.
@@ -559,8 +567,8 @@ In this step I will setup and configure the <i>Oracle Express Edition Database</
 </p>
 </div>
 
-<div id="outline-container-orgbeff1f6" class="outline-3">
-<h3 id="orgbeff1f6"><span class="section-number-3">3.1.</span> Creating SSH Trust for the user <i>parallels</i></h3>
+<div id="outline-container-org85b2384" class="outline-3">
+<h3 id="org85b2384"><span class="section-number-3">3.1.</span> Creating SSH Trust for the user <i>parallels</i></h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2023-10-12 Thu 12:21]</span></span>
@@ -655,8 +663,8 @@ ssh centos8_parallels <span style="color: #4E9A06;">"whoami; hostname; pwd"</spa
 </p>
 </div>
 
-<div id="outline-container-org4eb737a" class="outline-4">
-<h4 id="org4eb737a"><span class="section-number-4">3.1.1.</span> <span class="done DONE">DONE</span> Problem: SSH-Connection with public keys does not work.</h4>
+<div id="outline-container-org3e760d2" class="outline-4">
+<h4 id="org3e760d2"><span class="section-number-4">3.1.1.</span> <span class="done DONE">DONE</span> Problem: SSH-Connection with public keys does not work.</h4>
 <div class="outline-text-4" id="text-3-1-1">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2023-10-12 Thu 12:52]</span></span>
@@ -685,8 +693,8 @@ Debug1: Authentications that can continue: publickey,gssapi-keyex,gssapi-with-mi
 </div>
 </div>
 
-<div id="outline-container-org19b5306" class="outline-3">
-<h3 id="org19b5306"><span class="section-number-3">3.2.</span> Database Installation</h3>
+<div id="outline-container-org8713e8b" class="outline-3">
+<h3 id="org8713e8b"><span class="section-number-3">3.2.</span> Database Installation</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 The database can be downlaoded: <a href="https://www.oracle.com/de/database/technologies/xe-downloads.html">Oracle Database Express Edition (XE) Downloads | Oracle Deutschland</a>
@@ -804,8 +812,8 @@ lsnrctl status
 </div>
 </div>
 
-<div id="outline-container-org3424d45" class="outline-3">
-<h3 id="org3424d45"><span class="section-number-3">3.3.</span> Autostart Configuration</h3>
+<div id="outline-container-org8fe2240" class="outline-3">
+<h3 id="org8fe2240"><span class="section-number-3">3.3.</span> Autostart Configuration</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 I want to configure the database for automatic start after machine boot.
@@ -833,8 +841,8 @@ systemctl enable oracle-xe-21c
 </div>
 </div>
 
-<div id="outline-container-org7523135" class="outline-3">
-<h3 id="org7523135"><span class="section-number-3">3.4.</span> Database Operation</h3>
+<div id="outline-container-org7714be8" class="outline-3">
+<h3 id="org7714be8"><span class="section-number-3">3.4.</span> Database Operation</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 The database can be started and stop with the <i>sysctl utility.</i>
@@ -879,8 +887,8 @@ whoami
 </div>
 </div>
 
-<div id="outline-container-org17e8a84" class="outline-3">
-<h3 id="org17e8a84"><span class="section-number-3">3.5.</span> Snapshot02</h3>
+<div id="outline-container-orgc90aa46" class="outline-3">
+<h3 id="orgc90aa46"><span class="section-number-3">3.5.</span> Snapshot02</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 I take a snapshot of the CentOS_8 VM with the following contents.
@@ -904,8 +912,8 @@ I take a snapshot of the CentOS_8 VM with the following contents.
 </div>
 </div>
 
-<div id="outline-container-orga209fec" class="outline-3">
-<h3 id="orga209fec"><span class="section-number-3">3.6.</span> Conclusion</h3>
+<div id="outline-container-org7d5ac3b" class="outline-3">
+<h3 id="org7d5ac3b"><span class="section-number-3">3.6.</span> Conclusion</h3>
 <div class="outline-text-3" id="text-3-6">
 <p>
 At this stage of development, the Oracle-Database-XE-21c is installed and starts automatically with the VM.
@@ -915,12 +923,12 @@ The commands to start and stop the database are tested.
 </div>
 </div>
 
-<div id="outline-container-org9adf031" class="outline-2">
-<h2 id="org9adf031"><span class="section-number-2">4.</span> Preparing the FMW Installation</h2>
+<div id="outline-container-orgd91882f" class="outline-2">
+<h2 id="orgd91882f"><span class="section-number-2">4.</span> Preparing the FMW Installation</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgc9d35ed" class="outline-3">
-<h3 id="orgc9d35ed"><span class="section-number-3">4.1.</span> Setup of the installation user</h3>
+<div id="outline-container-org5c45aa5" class="outline-3">
+<h3 id="org5c45aa5"><span class="section-number-3">4.1.</span> Setup of the installation user</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 I want to install OSB with a dedicated unix user: <i>wls</i>. It should be a login user and I want to establish ssh-trust for key-based ssh login.
@@ -948,8 +956,8 @@ ham2burg
 </div>
 </div>
 
-<div id="outline-container-orgfb01897" class="outline-3">
-<h3 id="orgfb01897"><span class="section-number-3">4.2.</span> Creating SSH Trust</h3>
+<div id="outline-container-org965013d" class="outline-3">
+<h3 id="org965013d"><span class="section-number-3">4.2.</span> Creating SSH Trust</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 <span class="timestamp-wrapper"><span class="timestamp">[2023-10-06 Fri 10:06] </span></span> I want to have key-based login for the user <i>wls</i>. It should share a common key-pair: <i>lab_key</i>. Therefore the user wls must accept the public key <i>lab_key.pub</i>.
@@ -1003,8 +1011,8 @@ ssh centos8_wls <span style="color: #4E9A06;">"whoami; hostname; pwd"</span>
 </div>
 </div>
 
-<div id="outline-container-org5c1da01" class="outline-3">
-<h3 id="org5c1da01"><span class="section-number-3">4.3.</span> Copying the Oracle Distributions</h3>
+<div id="outline-container-org7404c32" class="outline-3">
+<h3 id="org7404c32"><span class="section-number-3">4.3.</span> Copying the Oracle Distributions</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 I have already downloaded the distribution for java, fmw, and osb to the workstation. In this step I copy it to the target machine.
@@ -1067,12 +1075,12 @@ ssh centos8_wls <span style="color: #4E9A06;">"find  /home/wls/live-scripting_fm
 </div>
 </div>
 
-<div id="outline-container-orgab17d7a" class="outline-2">
-<h2 id="orgab17d7a"><span class="section-number-2">5.</span> Installation für FMW</h2>
+<div id="outline-container-orga040195" class="outline-2">
+<h2 id="orga040195"><span class="section-number-2">5.</span> Installation für FMW</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orge415286" class="outline-3">
-<h3 id="orge415286"><span class="section-number-3">5.1.</span> Templates</h3>
+<div id="outline-container-org147c2cd" class="outline-3">
+<h3 id="org147c2cd"><span class="section-number-3">5.1.</span> Templates</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 I want to use template mechanism to replace variables in configuration files.
@@ -1084,8 +1092,8 @@ Thus I can support different stages and environments with one set of script and 
 </div>
 
 
-<div id="outline-container-org11339c9" class="outline-3">
-<h3 id="org11339c9"><span class="section-number-3">5.2.</span> Java Installation</h3>
+<div id="outline-container-org1a3e721" class="outline-3">
+<h3 id="org1a3e721"><span class="section-number-3">5.2.</span> Java Installation</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Java is unpacked (unzip) to a temporary directory and subsequently installed to the target Java directory using tar. 
@@ -1130,8 +1138,8 @@ ls $<span style="color: #0084C8; font-weight: bold;">JAVA_TEMP_DIR</span>
 </div>
 </div>
 
-<div id="outline-container-orgebf9a47" class="outline-3">
-<h3 id="orgebf9a47"><span class="section-number-3">5.3.</span> FWM Installation</h3>
+<div id="outline-container-org2228581" class="outline-3">
+<h3 id="org2228581"><span class="section-number-3">5.3.</span> FWM Installation</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 Now I will install the <i>Fusion Middleware</i> binaries on the target machine. A response file will be prepared using the template approach.
@@ -1197,8 +1205,8 @@ rm -rf  ${<span style="color: #0084C8; font-weight: bold;">TEMP_DIR_FMW</span>}
 </div>
 </div>
 
-<div id="outline-container-org4b279be" class="outline-3">
-<h3 id="org4b279be"><span class="section-number-3">5.4.</span> OSB Installation</h3>
+<div id="outline-container-org4836a2d" class="outline-3">
+<h3 id="org4836a2d"><span class="section-number-3">5.4.</span> OSB Installation</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 I now install the binaries for the OSB.
@@ -1256,8 +1264,8 @@ rm -rf  ${<span style="color: #0084C8; font-weight: bold;">TEMP_DIR_FMW</span>}
 </div>
 </div>
 
-<div id="outline-container-orgd06b65c" class="outline-3">
-<h3 id="orgd06b65c"><span class="section-number-3">5.5.</span> Cleaning up</h3>
+<div id="outline-container-org8d5ba11" class="outline-3">
+<h3 id="org8d5ba11"><span class="section-number-3">5.5.</span> Cleaning up</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 After installing the binaries, I delete the installation medias, to save space on the VM. Otherwise it will unecessarily waste disk space in the snapshots.
@@ -1288,8 +1296,8 @@ ls -ls
 </div>
 </div>
 
-<div id="outline-container-org6f8eaf8" class="outline-2">
-<h2 id="org6f8eaf8"><span class="section-number-2">6.</span> Creating the OSB Domain</h2>
+<div id="outline-container-orga54b17d" class="outline-2">
+<h2 id="orga54b17d"><span class="section-number-2">6.</span> Creating the OSB Domain</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 There are several steps necessary to create the OSB domain.
@@ -1299,15 +1307,15 @@ The python script will be customized, using the template approach.
 </p>
 </div>
 
-<div id="outline-container-orgce647c1" class="outline-3">
-<h3 id="orgce647c1"><span class="section-number-3">6.1.</span> Checking the database</h3>
+<div id="outline-container-org2f4c363" class="outline-3">
+<h3 id="org2f4c363"><span class="section-number-3">6.1.</span> Checking the database</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Before running the RCU tool I need to check that the database is started and listening. 
 </p>
 </div>
-<div id="outline-container-orge71ac39" class="outline-4">
-<h4 id="orge71ac39"><span class="section-number-4">6.1.1.</span> Starting and stopping the database</h4>
+<div id="outline-container-orgc3fbb07" class="outline-4">
+<h4 id="orgc3fbb07"><span class="section-number-4">6.1.1.</span> Starting and stopping the database</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <p>
 This is done using the init.d script.
@@ -1331,8 +1339,8 @@ Ok, the database is running. I know check the TNS listener.
 </div>
 </div>
 
-<div id="outline-container-org8946f1e" class="outline-4">
-<h4 id="org8946f1e"><span class="section-number-4">6.1.2.</span> Verifying the database listener</h4>
+<div id="outline-container-orgafd914d" class="outline-4">
+<h4 id="orgafd914d"><span class="section-number-4">6.1.2.</span> Verifying the database listener</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <p>
 I change to the user oracle and set the environment for checking the listener with <i>lsnrctl</i>
@@ -1365,8 +1373,8 @@ lsnrctl status
 </div>
 </div>
 
-<div id="outline-container-orgc8145aa" class="outline-3">
-<h3 id="orgc8145aa"><span class="section-number-3">6.2.</span> Running the RCU tool</h3>
+<div id="outline-container-org50d7347" class="outline-3">
+<h3 id="org50d7347"><span class="section-number-3">6.2.</span> Running the RCU tool</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 I will use the RCU-Tool to create the database schemes, which is a prerequisite for OSB domain creation.
@@ -1413,8 +1421,8 @@ ham2burg
 </div>
 </div>
 
-<div id="outline-container-org9dd69e0" class="outline-3">
-<h3 id="org9dd69e0"><span class="section-number-3">6.3.</span> OSB domain creation</h3>
+<div id="outline-container-org73919ce" class="outline-3">
+<h3 id="org73919ce"><span class="section-number-3">6.3.</span> OSB domain creation</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 I will now create the domain using WLST and the python script <i>createOSBDomain.py</i>. The python script originates from the OSB documentation and was modified to accept customization via the template approach.
@@ -1453,8 +1461,8 @@ ls -la
 </div>
 </div>
 
-<div id="outline-container-org984d46a" class="outline-3">
-<h3 id="org984d46a"><span class="section-number-3">6.4.</span> Starting the OSB domain</h3>
+<div id="outline-container-orge014113" class="outline-3">
+<h3 id="orge014113"><span class="section-number-3">6.4.</span> Starting the OSB domain</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 I will use the start scripts from the OSB installation to start the Nodemanager and the Adminserver. As a prerequisite I create boot.properiies files which allow for password-less script-based domain start from the command line.
@@ -1555,8 +1563,8 @@ The OSB is started and access to the web based administration tools is available
 </div>
 </div>
 
-<div id="outline-container-org45d1930" class="outline-3">
-<h3 id="org45d1930"><span class="section-number-3">6.5.</span> Snapshot03</h3>
+<div id="outline-container-orgd681080" class="outline-3">
+<h3 id="orgd681080"><span class="section-number-3">6.5.</span> Snapshot03</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
 I take a snapshot of the CentOS 8 VM with the following contents:
@@ -1583,8 +1591,8 @@ I take a snapshot of the CentOS 8 VM with the following contents:
 </div>
 </div>
 
-<div id="outline-container-org1d1d8fb" class="outline-3">
-<h3 id="org1d1d8fb"><span class="section-number-3">6.6.</span> Conclusion</h3>
+<div id="outline-container-org72e24d4" class="outline-3">
+<h3 id="org72e24d4"><span class="section-number-3">6.6.</span> Conclusion</h3>
 <div class="outline-text-3" id="text-6-6">
 <p>
 The necessary software distributions for the OSB, namely Java, FMW and OSB are installed on the CentOS VM. This was done with a dedicated installation user: <i>wls</i>. All steps to create a domain where executed, including RCU and domain configuration and creation with a Python script.
@@ -1594,8 +1602,8 @@ The OSB domain was started and testes. Access to the web based administration to
 </div>
 </div>
 
-<div id="outline-container-org706e62e" class="outline-2">
-<h2 id="org706e62e"><span class="section-number-2">7.</span> Documentation</h2>
+<div id="outline-container-org9cd8a54" class="outline-2">
+<h2 id="org9cd8a54"><span class="section-number-2">7.</span> Documentation</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 The documentation is an integral part of the live-scripting approach. The file live-scripting_osb.org is the documentation. It contains textual reports, listings, diagrams and attachments. This documentation will be shared in three different ways.
@@ -1605,8 +1613,8 @@ As a third option, a pdf file will be created from the  orgmode file, using the 
 </p>
 </div>
 
-<div id="outline-container-org7f5470f" class="outline-3">
-<h3 id="org7f5470f"><span class="section-number-3">7.1.</span> Project on GitHub</h3>
+<div id="outline-container-org24d1aef" class="outline-3">
+<h3 id="org24d1aef"><span class="section-number-3">7.1.</span> Project on GitHub</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 GitHub offers a command line interface which can be used to upload and commit the files of the project.
@@ -1717,8 +1725,8 @@ ls -la
 </div>
 
 
-<div id="outline-container-org0733707" class="outline-3">
-<h3 id="org0733707"><span class="section-number-3">7.2.</span> Project documentation on the web</h3>
+<div id="outline-container-org9da5313" class="outline-3">
+<h3 id="org9da5313"><span class="section-number-3">7.2.</span> Project documentation on the web</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 I want to generate the project documentation and publish it on my web server at anwi.gmbh.
@@ -1785,21 +1793,20 @@ ls -la
 
 
 <p>
-The 
-<a href="https://ubuntu2204_wordpress/labs/live-scripting_osb/live-scripting_osb.html">https://ubuntu2204_wordpress/labs/live-scripting_osb/live-scripting_osb.html</a>
+Link für local testing: <a href="https://ubuntu2204_wordpress/labs/live-scripting_osb/live-scripting_osb.html">https://ubuntu2204_wordpress/labs/live-scripting_osb/live-scripting_osb.html</a>
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org15617ec" class="outline-2">
-<h2 id="org15617ec"><span class="section-number-2">8.</span> Summary and Outlook</h2>
+<div id="outline-container-org0748392" class="outline-2">
+<h2 id="org0748392"><span class="section-number-2">8.</span> Summary and Outlook</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Andreas Wittmann</p>
-<p class="date">Created: 2023-10-22 Sun 13:12</p>
+<p class="date">Created: 2023-10-28 Sat 18:41</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

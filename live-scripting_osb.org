@@ -5,11 +5,11 @@
 #+author: Andreas Wittmann
 #+OPTIONS: toc:nil
 #+LANGUAGE: en
-#+Title: Installation of Oracle OSB using Live-Scripting medthod
+#+Title: Installation of Oracle OSB using the live-scripting method
 #+Startup: showall
 #+Include: "latex_setup.org"
 #+CATEGORY: LLV
-#+TODO: TODO(t!/!) WAIT(w!/!) MAYBE(m!/!) | DONE(d!/!) NOTE(n!/!) CANCELED(!c)
+#+TODO: TODO(t!/!) WAIT(w!/!) MAYBE(m!/!) | DONE(d!/!) NOTE(n!/!) CANCELED(!c)x
 
 
 #+BEGIN_abstract
@@ -21,6 +21,11 @@ This project demonstrates the installation of Oracle FMW and OSB using the Live-
 | Documentation (PDF)  | [[file:live-scripting_osb.pdf][https://anwi.gmbh/labs/live-scripting_osb/live-scripting_osb.pdf]]                                                                                          |
 | Documentation (HTML) | https://anwi.gmbh/labs/live-scripting_osb/live-scripting_osb.html                                                   |
 | Project on GitHub    | https://github.com/andreaswittmann/live-scripting_osb                                                           |
+
+#+begin_tip
+If you need help for running this installation or if you need additional assistance with your OSB environment, please take a look at my professional offering at: https://anwi.gmbh/?page_id=844&lang=en
+#+end_tip
+
 
 #+TOC: headlines 4
 
@@ -1155,8 +1160,7 @@ exit
 #+end_src
 
 
-The 
-https://ubuntu2204_wordpress/labs/live-scripting_osb/live-scripting_osb.html
+Link für local testing: https://ubuntu2204_wordpress/labs/live-scripting_osb/live-scripting_osb.html
 
 
 * Summary and Outlook
