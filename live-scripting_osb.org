@@ -26,6 +26,10 @@ This project demonstrates the installation of Oracle FMW and OSB using the Live-
 If you need help for running this installation or if you need additional assistance with your OSB environment, please take a look at my professional offering at: https://anwi.gmbh/?page_id=844&lang=en
 #+end_tip
 
+#+begin_quote
+If you need help for running this installation or if you need additional assistance with your OSB environment, please take a look at my professional offering at: https://anwi.gmbh/?page_id=844&lang=en
+#+end_quote
+
 
 #+TOC: headlines 4
 
